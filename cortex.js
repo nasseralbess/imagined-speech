@@ -1,4 +1,4 @@
-const WebSocket = require('ws');
+import WebSocket from 'ws'; // Import WebSocket library
 
 /**
  * This class handle:
@@ -11,7 +11,7 @@ const WebSocket = require('ws');
 const WARNING_CODE_HEADSET_DISCOVERY_COMPLETE = 142;
 const WARNING_CODE_HEADSET_CONNECTED = 104;
 
-class Cortex {
+export default class Cortex {
     constructor (user, socketUrl) {
         // create socket
         process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
@@ -454,12 +454,14 @@ class Cortex {
      * - logout data stream to console or file
      */
     sub(streams){
+        console.log("data")
         this.socket.on('open',async ()=>{
+            console.log("data2")
             await this.checkGrantAccessAndQuerySessionInfo()
             this.subRequest(streams, this.authToken, this.sessionId)
             this.socket.on('message', (data)=>{
                 // log stream data to file or console here
-                // console.log(data)
+                
             })
         })
     }
@@ -738,41 +740,3 @@ class Cortex {
     }
 
 }
-
-// ---------------------------------------------------------
-let socketUrl = 'wss://localhost:6868'
-let user = {
-    "license":"your license",
-    "clientId":"your clientId",
-    "clientSecret":"your client secret",
-    "debit":1
-}
-
-let c = new Cortex(user, socketUrl)
-c.listenForWarnings();
-
-// ---------- sub data stream
-// have six kind of stream data ['fac', 'pow', 'eeg', 'mot', 'met', 'com']
-// user could sub one or many stream at once
-let streams = ['eeg']
-c.sub(streams)
-
-// ---------- training mental command for profile
-// // train is do with a specific profile
-// // if profile not yet exist, it will be created
-// let profileName = 'test'
-
-// // number of repeat train for each action
-// // user have 8 seconds for each time of training
-// let numberOfTrain = 1
-
-// // always train 'neutral' complete first then train other action
-// let trainingActions = ['neutral', 'push']
-
-// c.train(profileName, trainingActions, numberOfTrain)
-
-
-// ----------- go to live mode after train
-// // load profile which already trained then test your mental command
-// c.live(profileName)
-// ---------------------------------------------------------
