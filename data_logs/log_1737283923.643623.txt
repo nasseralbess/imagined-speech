@@ -1,0 +1,14 @@
+[1737283919.494110] Session created successfully.
+[1737283919.494110] Creating record: bread1
+[1737283919.516097] Record created with ID: 2624f933-01b7-4b0e-94e8-c1f5b049ca52
+[1737283919.516097] Recording started...
+[1737283919.516097] Recording at 0 seconds
+[1737283920.518029] Recording at 1 seconds
+[1737283921.519017] Recording at 2 seconds
+[1737283922.519972] Recording ended.
+[1737283922.519972] Stopping record...
+[1737283922.561883] Recording stopped.
+[1737283922.561883] Post-processing in progress...
+[1737283923.597648] Post-processing completed for record ID: 2624f933-01b7-4b0e-94e8-c1f5b049ca52
+[1737283923.597648] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[1737283923.643623] Data export completed successfully.

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording Interface</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        .fullscreen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            background-color: white;
+            font-size: 8rem;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Start EEG Recording</h1>
+    <form id="recordingForm">
+        <label for="duration">Recording Duration (seconds): </label>
+        <input type="number" id="duration" name="duration" required min="1">
+        <button type="submit">Start Recording</button>
+    </form>
+
+    <div id="statusMessage" style="margin-top: 20px;"></div>
+
+    <script>
+        let recordingWindow;
+
+        document.getElementById('recordingForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const duration = document.getElementById('duration').value;
+            const statusMessage = document.getElementById('statusMessage');
+
+            statusMessage.innerHTML = "Starting recording...";
+            openFullScreenPage();
+
+            try {
+                logEvent("Starting process");
+                await delay(3000); // Wait 3 seconds
+                updateDisplay("overt speech");
+                await delay(1000); // Wait 1 second
+
+                // Start EEG recording session after displaying "overt speech"
+                logEvent("Starting EEG recording session");
+                await startRecordingSession(duration); // Wait for the recording session to start
+                logEvent("Changing to 'flower'");
+                updateDisplay("flower");
+                await delay(duration * 1000); // Wait for user-specified duration in milliseconds
+
+                logEvent("Ending session");
+                closeRecordingPage();
+                statusMessage.innerHTML = "Recording completed successfully!";
+            } catch (error) {
+                statusMessage.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        });
+
+        async function startRecordingSession(duration) {
+            const response = await fetch('http://127.0.0.1:8001/start_recording', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ duration: parseInt(duration) })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to start recording');
+            }
+
+            const data = await response.json();
+            console.log(`[${new Date().toISOString()}] Recording started:`, data);
+        }
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function openFullScreenPage() {
+            recordingWindow = window.open(
+                '',
+                '_blank',
+                'toolbar=no,menubar=no,scrollbars=no,resizable=no,fullscreen=yes,width=' +
+                screen.availWidth +
+                ',height=' +
+                screen.availHeight
+            );
+
+            if (recordingWindow) {
+                // Write the content to the new window
+                recordingWindow.document.write(`
+            <style>
+                body, html {
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: white;
+                }
+                #displayArea {
+                    font-size: 48px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            </style>
+            <div id="displayArea">+</div>
+        `);
+
+                // Focus the window to ensure fullscreen effect
+                recordingWindow.focus();
+
+                // Request fullscreen
+                setTimeout(() => {
+                    if (recordingWindow.document.documentElement.requestFullscreen) {
+                        recordingWindow.document.documentElement.requestFullscreen().catch((err) => {
+                            console.warn("Fullscreen request failed:", err.message);
+                        });
+                    } else {
+                        console.warn("Fullscreen API not supported.");
+                    }
+                }, 100);
+            } else {
+                console.error("Unable to open a new window. Please allow pop-ups.");
+            }
+        }
+
+
+        function updateDisplay(text) {
+            if (recordingWindow && recordingWindow.document) {
+                const displayArea = recordingWindow.document.getElementById('displayArea');
+                displayArea.innerText = text;
+                logEvent(`Displayed text: '${text}'`);
+            }
+        }
+
+        function logEvent(message) {
+            const timestamp = new Date().toISOString();
+            console.log(`[${timestamp}] ${message}`);
+        }
+
+        function closeRecordingPage() {
+            if (recordingWindow) {
+                recordingWindow.close();
+                recordingWindow = null;
+                logEvent("Recording window closed");
+            }
+        }
+    </script>
+</body>
+
+</html>

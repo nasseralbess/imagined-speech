@@ -3,10 +3,10 @@
     ],
     "connectionType": "dongle",
     "exportApp": "com.satiani.imagined_test_eeg",
-    "exportTime": "2025-01-09T12:27:50.218+03:00",
+    "exportTime": "2025-01-19T13:50:25.533+03:00",
     "headsetType": "EPOCX",
     "mappings": null,
     "montageType": "UNKNOWN",
-    "recordId": "7807e1f3-08a7-402e-b0ba-25e1872fb655",
+    "recordId": "505f4aee-9e86-42de-9c12-7f822c9cc4c0",
     "user": "satiani"
 }

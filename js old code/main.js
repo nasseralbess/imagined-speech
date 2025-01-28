@@ -1,5 +1,5 @@
-import Cortex from './cortex.js'; // Import the Cortex class
-import config from './config.js'; // Import configuration
+import Cortex from '../cortex.js'; // Import the Cortex class
+import config from '../config.js'; // Import configuration
 
 let socketUrl = 'wss://localhost:6868';
 let user = {
