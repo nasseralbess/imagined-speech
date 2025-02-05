@@ -1,0 +1,13 @@
+[2025-02-05 14:34:37.620] Attempting to open connection to headset...
+[2025-02-05 14:34:38.937] Session created successfully. Headset found!
+[2025-02-05 14:34:38.937] Creating record: bread1
+[2025-02-05 14:34:38.963] Record created with ID: 8bd3c2f1-b9ca-4dbf-859d-5672ba5c4ec8
+[2025-02-05 14:34:38.964] Recording started...
+[2025-02-05 14:34:38.964] Recording at 0 seconds
+[2025-02-05 14:34:39.965] Recording ended.
+[2025-02-05 14:34:39.965] Stopping record...
+[2025-02-05 14:34:39.982] Recording stopped.
+[2025-02-05 14:34:39.982] Post-processing in progress...
+[2025-02-05 14:34:41.185] Post-processing completed for record ID: 8bd3c2f1-b9ca-4dbf-859d-5672ba5c4ec8
+[2025-02-05 14:34:41.186] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[2025-02-05 14:34:41.234] Data export completed successfully.

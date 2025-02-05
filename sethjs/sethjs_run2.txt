@@ -1,0 +1,24 @@
+[2025-02-05T10:21:21.746Z] Displayed '+' for second session for 2 seconds
+[2025-02-05T10:21:21.746Z] Starting delay for 2 seconds
+[2025-02-05T10:21:23.750Z] Displayed word 'flower' in blue for 1 seconds
+[2025-02-05T10:21:23.750Z] Preparing to start recording. Data file will be: sethjs_data_run2.json
+[2025-02-05T10:21:26.777Z] Starting delay for 1 seconds
+[2025-02-05T10:21:26.776Z] Recording session started for 'flower' in blue
+[2025-02-05T10:21:26.776Z] Recording started successfully. Data file: sethjs_data_run2.json
+[2025-02-05T10:21:27.790Z] Recording session completed for 'flower' in blue
+[2025-02-05T10:21:27.791Z] Second recording window closed
+[2025-02-05T10:21:33.542Z] Starting delay period
+[2025-02-05T10:21:33.543Z] Starting delay for 4 seconds
+[2025-02-05T10:21:37.552Z] Delay of 4 seconds completed
+[2025-02-05T10:21:37.583Z] Updated display to '+' with color 'black'
+[2025-02-05T10:21:37.585Z] Starting delay for 2 seconds
+[2025-02-05T10:21:37.584Z] Displayed '+' for 2 seconds
+[2025-02-05T10:21:39.595Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T10:21:39.595Z] Displayed word 'flower' in orange for 1 seconds
+[2025-02-05T10:21:39.595Z] Preparing to start recording. Data file will be: sethjs_data_run2.json
+[2025-02-05T10:21:42.616Z] Recording session started for 'flower' in orange
+[2025-02-05T10:21:42.615Z] Recording started successfully. Data file: sethjs_data_run2.json
+[2025-02-05T10:21:42.617Z] Starting delay for 1 seconds
+[2025-02-05T10:21:43.620Z] Recording session completed for 'flower' in orange
+[2025-02-05T10:21:43.623Z] Recording window closed
+[2025-02-05T10:21:43.625Z] First recording window closed

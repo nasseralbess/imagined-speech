@@ -18,7 +18,7 @@ app.add_middleware(
 )
 
 class Record():
-    def __init__(self, app_client_id, app_client_secret, **kwargs):
+    def __init__(self, app_client_id, app_client_secret, subject_name, run_id, **kwargs):
         self.c = Cortex(app_client_id, app_client_secret, debug_mode=True, **kwargs)
         self.c.bind(create_session_done=self.on_create_session_done)
         self.c.bind(create_record_done=self.on_create_record_done)
@@ -27,36 +27,39 @@ class Record():
         self.c.bind(export_record_done=self.on_export_record_done)
         self.c.bind(inform_error=self.on_inform_error)
 
-        # Initialize logging
         self.logs = []
-        self.log_folder = os.path.abspath('./data_logs')
-        os.makedirs(self.log_folder, exist_ok=True)
+        self.subject_name = subject_name  
+        self.run_id = run_id 
+        self.headset_event = threading.Event()  
+        self.headset_error = None
 
     def log(self, message):
         """
         Append a message to the log list and print it with a timestamp including milliseconds.
         """
-        start_time = time.time()
-        timestamped_message = f"[{start_time:.6f}] {message}"
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+        timestamped_message = f"[{timestamp}] {message}"
         self.logs.append(timestamped_message)
         print(timestamped_message)
 
-
     def save_logs(self):
         """
-        Save all logs to a timestamped log file in the log folder.
+        Save all logs to a subject-specific log file.
         """
-        timestamp =  time.time()
-        log_file_path = os.path.join(self.log_folder, f"log_{timestamp:.6f}.txt")
+        folder_path = os.path.abspath(f'./{self.subject_name}')
+        os.makedirs(folder_path, exist_ok=True) 
+        log_file_path = os.path.join(folder_path, f"{self.subject_name}_run{self.run_id}.txt")
         with open(log_file_path, 'w') as log_file:
             log_file.write('\n'.join(self.logs))
         self.log(f"Logs saved to {log_file_path}")
         return log_file_path
 
+
     def start(self, record_duration_s=20, headsetId=''):
         self.record_duration_s = record_duration_s
         if headsetId != '':
             self.c.set_wanted_headset(headsetId)
+        self.log("Attempting to open connection to headset...")
         self.c.open()
 
     def create_record(self, record_title, **kwargs):
@@ -80,9 +83,9 @@ class Record():
             length += 1
         self.log("Recording ended.")
 
-    # Callback functions
     def on_create_session_done(self, *args, **kwargs):
-        self.log("Session created successfully.")
+        self.log("Session created successfully. Headset found!")
+        self.headset_event.set()
         self.create_record(self.record_title, description=self.record_description)
 
     def on_create_record_done(self, *args, **kwargs):
@@ -104,26 +107,58 @@ class Record():
 
     def on_export_record_done(self, *args, **kwargs):
         self.log("Data export completed successfully.")
-        self.save_logs()  # Save logs after exporting
+        self.save_logs()  # Access subject_name and run_id from instance attributes
         self.c.close()
 
     def on_inform_error(self, *args, **kwargs):
         error_data = kwargs.get('error_data')
         self.log(f"Error: {error_data}")
+        self.headset_error = error_data
+        self.headset_event.set()
         self.save_logs()
 
+class LogRequest(BaseModel):
+    subject_name: str
+    run_id: int
+    log_data: str
+
+@app.post("/save_log")
+async def save_log(request: LogRequest):
+    try:
+        print(f"Received log request: {request.dict()}")
+        folder_path = os.path.abspath(f"./{request.subject_name}")
+        os.makedirs(folder_path, exist_ok=True)
+        log_file_path = os.path.join(folder_path, f"{request.subject_name}_run{request.run_id}.txt")
+        with open(log_file_path, "a") as log_file:
+            log_file.write(request.log_data + "\n")
+        return {"status": "Log saved successfully", "file_path": log_file_path}
+    except Exception as e:
+        print(f"Error saving log: {str(e)}")
+        return {"error": f"Failed to save log: {str(e)}"}
+
+
+
 class RecordRequest(BaseModel):
-    duration: int
+    duration: float
+    subject_name: str
+    run_id: int
 
 @app.post("/start_recording")
 async def start_recording(request: RecordRequest):
     record_duration_s = request.duration
+    subject_name = request.subject_name
+    run_id = request.run_id
 
     # Initialize Record class in the same thread as the request
     your_app_client_id = 'o18uSIBuLSQPLCoIu14LDLjyStftQJ4q78LuXXnk'
     your_app_client_secret = 'Jj3uxkbaLHsCiQJdhXIfg1DvSe6BCvaboaYFuGqKYZtlmfyVkXVRnCJU4tuQWrJMHxYePz5U802pBZll9Pn1ihH5Lcuz76rL6Q6hw3VWZxY0GUKX9UfS8GLQIJurRv9f'
 
-    r = Record(your_app_client_id, your_app_client_secret)
+    r = Record(
+        your_app_client_id,
+        your_app_client_secret,
+        subject_name=subject_name,
+        run_id=run_id
+    )
     r.record_title = 'bread1'
     r.record_description = ''
     r.record_export_folder = r'C:/Users/bess/Desktop/emotiv-wrapper/data'
@@ -134,5 +169,15 @@ async def start_recording(request: RecordRequest):
     def start():
         r.start(record_duration_s)
 
-    threading.Thread(target=start).start()
+    thread = threading.Thread(target=start)
+    thread.start()
+    timeout_seconds = 3
+    if not r.headset_event.wait(timeout_seconds):
+        r.log(f"Headset not found after waiting {timeout_seconds} seconds. Aborting recording.")
+        r.c.close()  
+        return {"status": "error", "message": "Headset not found. Aborting recording."}
+
+    if r.headset_error:
+        return {"status": "error", "message": f"Error connecting to headset: {r.headset_error}"}
+
     return {"status": "Recording started"}

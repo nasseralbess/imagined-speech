@@ -1,0 +1,46 @@
+[2025-02-05T10:57:45.949Z] Starting delay period
+[2025-02-05T10:57:45.974Z] Delay of NaN seconds completed
+[2025-02-05T10:57:45.981Z] Updated display to '+' with color 'black'
+[2025-02-05T10:57:45.981Z] Displayed '+' for NaN seconds
+[2025-02-05T10:57:46.014Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T10:57:46.015Z] Displayed word 'flower' in orange for NaN seconds
+[2025-02-05T10:57:46.038Z] Preparing to start recording. Data file will be: _data_run1.json
+[2025-02-05T10:57:46.054Z] Unexpected response from server: {"detail":[{"type":"int_type","loc":["body","duration"],"msg":"Input should be a valid integer","input":null}]}
+[2025-02-05T10:57:46.058Z] Failed to start recording: Unexpected server response
+[2025-02-05T10:57:46.068Z] Error during recording sequence: Unexpected server response
+[2025-02-05T10:58:17.069Z] Starting delay period
+[2025-02-05T10:58:17.101Z] Delay of NaN seconds completed
+[2025-02-05T10:58:17.106Z] Updated display to '+' with color 'black'
+[2025-02-05T10:58:17.106Z] Displayed '+' for NaN seconds
+[2025-02-05T10:58:17.146Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T10:58:17.146Z] Displayed word 'flower' in orange for NaN seconds
+[2025-02-05T10:58:17.173Z] Preparing to start recording. Data file will be: _data_run1.json
+[2025-02-05T10:58:17.185Z] Failed to start recording: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T10:58:17.190Z] Error during recording sequence: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:01:57.158Z] Starting delay period
+[2025-02-05T11:01:57.182Z] Delay of NaN seconds completed
+[2025-02-05T11:01:57.192Z] Updated display to '+' with color 'black'
+[2025-02-05T11:01:57.193Z] Displayed '+' for NaN seconds
+[2025-02-05T11:01:57.224Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T11:01:57.224Z] Displayed word 'flower' in orange for NaN seconds
+[2025-02-05T11:01:57.246Z] Preparing to start recording. Data file will be: _data_run1.json
+[2025-02-05T11:01:57.255Z] Failed to start recording: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:01:57.267Z] Error during recording sequence: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:02:16.221Z] Starting delay period
+[2025-02-05T11:02:16.245Z] Delay of NaN seconds completed
+[2025-02-05T11:02:16.249Z] Updated display to '+' with color 'black'
+[2025-02-05T11:02:16.249Z] Displayed '+' for NaN seconds
+[2025-02-05T11:02:16.281Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T11:02:16.282Z] Displayed word 'flower' in orange for NaN seconds
+[2025-02-05T11:02:16.299Z] Preparing to start recording. Data file will be: _data_run1.json
+[2025-02-05T11:02:16.311Z] Failed to start recording: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:02:16.317Z] Error during recording sequence: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:03:00.143Z] Starting delay period
+[2025-02-05T11:03:00.175Z] Delay of NaN seconds completed
+[2025-02-05T11:03:00.181Z] Updated display to '+' with color 'black'
+[2025-02-05T11:03:00.182Z] Displayed '+' for NaN seconds
+[2025-02-05T11:03:00.221Z] Updated display to 'flower' with color 'orange'
+[2025-02-05T11:03:00.222Z] Displayed word 'flower' in orange for NaN seconds
+[2025-02-05T11:03:00.245Z] Preparing to start recording. Data file will be: _data_run1.json
+[2025-02-05T11:03:00.256Z] Failed to start recording: Failed to execute 'json' on 'Response': body stream already read
+[2025-02-05T11:03:00.262Z] Error during recording sequence: Failed to execute 'json' on 'Response': body stream already read

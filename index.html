@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,151 +14,175 @@
             width: 100vw;
             margin: 0;
             background-color: white;
-            font-size: 8rem;
+            font-size: 200px;
             font-family: Arial, sans-serif;
             text-align: center;
         }
     </style>
 </head>
-
 <body>
     <h1>Start EEG Recording</h1>
     <form id="recordingForm">
-        <label for="duration">Recording Duration (seconds): </label>
-        <input type="number" id="duration" name="duration" required min="1">
+        <label for="delayDuration">Delay Duration (seconds): </label>
+        <input type="number" id="delayDuration" name="delayDuration" required min="1"><br><br>
+        <label for="cursorDuration">Cursor Duration (seconds): </label>
+        <input type="number" id="cursorDuration" name="cursorDuration" required min="1"><br><br>
+        <label for="wordDuration">Word Duration (seconds): </label>
+        <input type="number" id="wordDuration" name="wordDuration" required min="1"><br><br>
+        <label for="word">Select Word: </label>
+        <select id="word" name="word" required>
+            <option value="flower">Flower</option>
+            <option value="flour">Flour</option>
+        </select><br><br>
+        <label for="subjectName">Subject Name: </label>
+        <input type="text" id="subjectName" name="subjectName" required><br><br>
         <button type="submit">Start Recording</button>
     </form>
-
     <div id="statusMessage" style="margin-top: 20px;"></div>
-
     <script>
-        let recordingWindow;
-
-        document.getElementById('recordingForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const duration = document.getElementById('duration').value;
-            const statusMessage = document.getElementById('statusMessage');
-
-            statusMessage.innerHTML = "Starting recording...";
-            openFullScreenPage();
-
+        let recordingWindow
+        let runCounter = 1
+        document.getElementById('recordingForm').addEventListener('submit', async function(e) {
+            e.preventDefault()
+            const delayDuration = parseInt(document.getElementById('delayDuration').value) * 1000
+            const cursorDuration = parseInt(document.getElementById('cursorDuration').value) * 1000
+            const wordDuration = parseInt(document.getElementById('wordDuration').value) * 1000
+            const selectedWord = document.getElementById('word').value
+            const subjectName = document.getElementById('subjectName').value
+            const statusMessage = document.getElementById('statusMessage')
+            statusMessage.innerHTML = "Starting recording..."
             try {
-                logEvent("Starting process");
-                await delay(3000); // Wait 3 seconds
-                updateDisplay("overt speech");
-                await delay(1000); // Wait 1 second
-
-                // Start EEG recording session after displaying "overt speech"
-                logEvent("Starting EEG recording session");
-                await startRecordingSession(duration); // Wait for the recording session to start
-                logEvent("Changing to 'flower'");
-                updateDisplay("flower");
-                await delay(duration * 1000); // Wait for user-specified duration in milliseconds
-
-                logEvent("Ending session");
-                closeRecordingPage();
-                statusMessage.innerHTML = "Recording completed successfully!";
+                await startRecordingSequence(delayDuration, cursorDuration, wordDuration, selectedWord, subjectName)
+                statusMessage.innerHTML = "Recording completed successfully!"
             } catch (error) {
-                statusMessage.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                statusMessage.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`
             }
-        });
-
-        async function startRecordingSession(duration) {
-            const response = await fetch('http://127.0.0.1:8001/start_recording', {
+        })
+        async function startRecordingSequence(delayDuration, cursorDuration, wordDuration, selectedWord, subjectName) {
+            try {
+                logEvent("Starting delay period", subjectName, runCounter)
+                await delay(delayDuration, subjectName, runCounter)
+                logEvent(`Delay of ${delayDuration / 1000} seconds completed`, subjectName, runCounter)
+                openFullScreenPage()
+                updateDisplay("+", "black", subjectName, runCounter)
+                logEvent(`Displayed '+' for ${cursorDuration / 1000} seconds`, subjectName, runCounter)
+                await delay(cursorDuration, subjectName, runCounter)
+                updateDisplay(selectedWord, "orange", subjectName, runCounter)
+                logEvent(`Displayed word '${selectedWord}' in orange for ${wordDuration / 1000} seconds`, subjectName, runCounter)
+                await startRecordingSession(wordDuration / 1000, subjectName)
+                logEvent(`Recording session started for '${selectedWord}' in orange`, subjectName, runCounter)
+                await delay(wordDuration, subjectName, runCounter)
+                logEvent(`Recording session completed for '${selectedWord}' in orange`, subjectName, runCounter)
+                closeRecordingPage(subjectName, runCounter)
+                logEvent("First recording window closed", subjectName, runCounter)
+                runCounter++
+                openFullScreenPage()
+                updateDisplay("+", "black", subjectName, runCounter)
+                logEvent(`Displayed '+' for second session for ${cursorDuration / 1000} seconds`, subjectName, runCounter)
+                await delay(cursorDuration, subjectName, runCounter)
+                updateDisplay(selectedWord, "blue", subjectName, runCounter)
+                logEvent(`Displayed word '${selectedWord}' in blue for ${wordDuration / 1000} seconds`, subjectName, runCounter)
+                await startRecordingSession(wordDuration / 1000, subjectName)
+                logEvent(`Recording session started for '${selectedWord}' in blue`, subjectName, runCounter)
+                await delay(wordDuration, subjectName, runCounter)
+                logEvent(`Recording session completed for '${selectedWord}' in blue`, subjectName, runCounter)
+                closeRecordingPage(subjectName, runCounter)
+                logEvent("Second recording window closed", subjectName, runCounter)
+            } catch (error) {
+                logEvent(`Error during recording sequence: ${error.message}`, subjectName, runCounter)
+                throw error
+            }
+        }
+        async function startRecordingSession(duration, subjectName) {
+            const dataFileName = `${subjectName}_data_run${runCounter}.json`
+            logEvent(`Preparing to start recording. Data file will be: ${dataFileName}`, subjectName, runCounter)
+            const response = await fetch('http://127.0.0.1:8000/start_recording', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ duration: parseInt(duration) })
-            });
-
+                body: JSON.stringify({
+                    duration: parseInt(duration),
+                    subject_name: subjectName,
+                    run_id: runCounter
+                })
+            })
             if (!response.ok) {
-                throw new Error('Failed to start recording');
+                throw new Error('Failed to start recording')
             }
-
-            const data = await response.json();
-            console.log(`[${new Date().toISOString()}] Recording started:`, data);
+            const data = await response.json()
+            logEvent(`Recording started successfully. Data file: ${dataFileName}`, subjectName, runCounter)
         }
-
-        function delay(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
+        function delay(ms, subjectName, runID) {
+            logEvent(`Starting delay for ${ms / 1000} seconds`, subjectName, runID)
+            return new Promise(resolve => setTimeout(resolve, ms))
         }
-
         function openFullScreenPage() {
-            recordingWindow = window.open(
-                '',
-                '_blank',
-                'toolbar=no,menubar=no,scrollbars=no,resizable=no,fullscreen=yes,width=' +
-                screen.availWidth +
-                ',height=' +
-                screen.availHeight
-            );
-
+            recordingWindow = window.open('', '_blank', 'toolbar=no,menubar=no,scrollbars=no,resizable=no,fullscreen=yes,width=' + screen.availWidth + ',height=' + screen.availHeight)
             if (recordingWindow) {
-                // Write the content to the new window
                 recordingWindow.document.write(`
-            <style>
-                body, html {
-                    margin: 0;
-                    padding: 0;
-                    overflow: hidden;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: white;
-                }
-                #displayArea {
-                    font-size: 48px;
-                    font-weight: bold;
-                    text-align: center;
-                }
-            </style>
-            <div id="displayArea">+</div>
-        `);
-
-                // Focus the window to ensure fullscreen effect
-                recordingWindow.focus();
-
-                // Request fullscreen
-                setTimeout(() => {
-                    if (recordingWindow.document.documentElement.requestFullscreen) {
-                        recordingWindow.document.documentElement.requestFullscreen().catch((err) => {
-                            console.warn("Fullscreen request failed:", err.message);
-                        });
-                    } else {
-                        console.warn("Fullscreen API not supported.");
+                <style>
+                    body, html {
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: white;
                     }
-                }, 100);
+                    #displayArea {
+                        font-size: 200px;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                </style>
+                <div id="displayArea">+</div>
+            `)
+                recordingWindow.focus()
             } else {
-                console.error("Unable to open a new window. Please allow pop-ups.");
+                console.error("Unable to open a new window. Please allow pop-ups.")
             }
         }
-
-
-        function updateDisplay(text) {
+        function updateDisplay(text, color, subjectName, runID) {
             if (recordingWindow && recordingWindow.document) {
-                const displayArea = recordingWindow.document.getElementById('displayArea');
-                displayArea.innerText = text;
-                logEvent(`Displayed text: '${text}'`);
+                const displayArea = recordingWindow.document.getElementById("displayArea")
+                displayArea.innerText = text
+                displayArea.style.color = color
+                logEvent(`Updated display to '${text}' with color '${color}'`, subjectName, runID)
             }
         }
-
-        function logEvent(message) {
-            const timestamp = new Date().toISOString();
-            console.log(`[${timestamp}] ${message}`);
+        async function logEvent(message, subjectName, runID) {
+            const timestamp = new Date().toISOString()
+            const logEntry = `[${timestamp}] ${message}`
+            try {
+                const response = await fetch('http://127.0.0.1:8000/save_log', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        subject_name: subjectName,
+                        run_id: runID,
+                        log_data: logEntry,
+                    }),
+                })
+                if (!response.ok) {
+                    console.error("Failed to save log:", await response.json())
+                }
+            } catch (error) {
+                console.error("Error saving log:", error)
+            }
         }
-
-        function closeRecordingPage() {
+        function closeRecordingPage(subjectName, runID) {
             if (recordingWindow) {
-                recordingWindow.close();
-                recordingWindow = null;
-                logEvent("Recording window closed");
+                recordingWindow.close()
+                recordingWindow = null
+                logEvent("Recording window closed", subjectName, runID)
             }
         }
     </script>
 </body>
-
 </html>
