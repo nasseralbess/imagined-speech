@@ -6,6 +6,9 @@ import os
 from datetime import datetime
 from cortex import Cortex
 from fastapi.middleware.cors import CORSMiddleware
+import json
+
+record_store = {}
 
 app = FastAPI()
 
@@ -46,10 +49,10 @@ class Record():
         """
         Save all logs to a subject-specific log file.
         """
-        folder_path = os.path.abspath(f'./{self.subject_name}')
+        folder_path = os.path.abspath(f'./data_logs/{self.subject_name}')
         os.makedirs(folder_path, exist_ok=True) 
         log_file_path = os.path.join(folder_path, f"{self.subject_name}_run{self.run_id}.txt")
-        with open(log_file_path, 'w') as log_file:
+        with open(log_file_path, 'a') as log_file:
             log_file.write('\n'.join(self.logs))
         self.log(f"Logs saved to {log_file_path}")
         return log_file_path
@@ -88,12 +91,16 @@ class Record():
         self.headset_event.set()
         self.create_record(self.record_title, description=self.record_description)
 
+    # def on_create_record_done(self, *args, **kwargs):
+    #     data = kwargs.get('data')
+    #     self.record_id = data['uuid']
+    #     self.log(f"Record created with ID: {self.record_id}")
+    #     self.wait(self.record_duration_s)
+    #     self.stop_record()
     def on_create_record_done(self, *args, **kwargs):
         data = kwargs.get('data')
         self.record_id = data['uuid']
         self.log(f"Record created with ID: {self.record_id}")
-        self.wait(self.record_duration_s)
-        self.stop_record()
 
     def on_stop_record_done(self, *args, **kwargs):
         self.log("Recording stopped.")
@@ -126,7 +133,7 @@ class LogRequest(BaseModel):
 async def save_log(request: LogRequest):
     try:
         print(f"Received log request: {request.dict()}")
-        folder_path = os.path.abspath(f"./{request.subject_name}")
+        folder_path = os.path.abspath(f"./data_logs/{request.subject_name}")
         os.makedirs(folder_path, exist_ok=True)
         log_file_path = os.path.join(folder_path, f"{request.subject_name}_run{request.run_id}.txt")
         with open(log_file_path, "a") as log_file:
@@ -142,14 +149,15 @@ class RecordRequest(BaseModel):
     duration: float
     subject_name: str
     run_id: int
+    sequence: list[list[str]]
+    cursor_delay: float
+    word_delay: float
 
 @app.post("/start_recording")
 async def start_recording(request: RecordRequest):
-    record_duration_s = request.duration
     subject_name = request.subject_name
     run_id = request.run_id
 
-    # Initialize Record class in the same thread as the request
     your_app_client_id = 'o18uSIBuLSQPLCoIu14LDLjyStftQJ4q78LuXXnk'
     your_app_client_secret = 'Jj3uxkbaLHsCiQJdhXIfg1DvSe6BCvaboaYFuGqKYZtlmfyVkXVRnCJU4tuQWrJMHxYePz5U802pBZll9Pn1ihH5Lcuz76rL6Q6hw3VWZxY0GUKX9UfS8GLQIJurRv9f'
 
@@ -159,25 +167,47 @@ async def start_recording(request: RecordRequest):
         subject_name=subject_name,
         run_id=run_id
     )
-    r.record_title = 'bread1'
+    r.record_title = request.subject_name + str(request.run_id)
     r.record_description = ''
     r.record_export_folder = r'C:/Users/bess/Desktop/emotiv-wrapper/data'
     r.record_export_data_types = ['EEG', 'MOTION', 'PM', 'BP']
     r.record_export_format = 'CSV'
     r.record_export_version = 'V2'
 
-    def start():
-        r.start(record_duration_s)
+    with open(f"data/{request.subject_name}_{request.run_id}_params.json", 'w') as f:
+        json.dump({
+            "cursor_delay": request.cursor_delay,
+            "word_delay": request.word_delay,
+            "sequence": request.sequence
+        }, f)
 
+    # Store the Record instance in the global dictionary
+    record_store[run_id] = r
+
+    def start():
+        # Pass the dummy duration (it is ignored now)
+        r.start(0)
     thread = threading.Thread(target=start)
     thread.start()
     timeout_seconds = 3
     if not r.headset_event.wait(timeout_seconds):
         r.log(f"Headset not found after waiting {timeout_seconds} seconds. Aborting recording.")
-        r.c.close()  
+        r.c.close()
         return {"status": "error", "message": "Headset not found. Aborting recording."}
-
     if r.headset_error:
         return {"status": "error", "message": f"Error connecting to headset: {r.headset_error}"}
-
     return {"status": "Recording started"}
+
+
+class StopRecordRequest(BaseModel):
+    subject_name: str
+    run_id: int
+
+@app.post("/stop_recording")
+async def stop_recording(request: StopRecordRequest):
+    run_id = request.run_id
+    r = record_store.get(run_id)
+    if not r:
+        return {"status": "error", "message": "Record instance not found."}
+    r.stop_record()
+    return {"status": "Record stopped successfully"}
