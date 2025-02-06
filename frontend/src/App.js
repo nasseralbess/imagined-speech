@@ -5,10 +5,6 @@ import {
   Typography,
   TextField,
   Button,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
   Box,
   Dialog,
   DialogContent,
@@ -16,33 +12,49 @@ import {
   Alert
 } from '@mui/material';
 
-/**
- * This React component implements a recording interface similar in logic to your plain HTML/JS example.
- * It uses MUI components for a modern UI.
- */
+// A helper function to shuffle an array using the Fisher-Yates algorithm
+const shuffleArray = (array) => {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
+// Define a fixed list of 10 pairs (each pair preserves its order)
+const defaultWordPairs = [
+  ["flower", "flour"],
+  ["knight", "night"],
+  ["bare", "bear"],
+  ["cell", "sell"],
+  ["cent", "scent"],
+  ["flea", "flee"],
+  ["hole", "whole"],
+  ["knit", "nit"],
+  ["plane", "plain"],
+  ["rose", "rows"]
+];
+
+// ... [imports and helper functions remain unchanged]
+
 function App() {
-  // Form state
-  const [delayDuration, setDelayDuration] = useState(4);
-  const [cursorDuration, setCursorDuration] = useState(2);
-  const [wordDuration, setWordDuration] = useState(1);
-  const [selectedWord, setSelectedWord] = useState('flower');
-  const [subjectName, setSubjectName] = useState('Bread');
+  // Form state and UI state remain unchanged.
+  const [cursorDuration, setCursorDuration] = useState(0.25); // seconds
+  const [wordDuration, setWordDuration] = useState(1);        // seconds
+  const [subjectName, setSubjectName] = useState('Test1');
   const [statusMessage, setStatusMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Run counter state (for tracking the two sessions)
-  const [runCounter, setRunCounter] = useState(1);
-
-  // State for the full-screen display dialog (instead of opening a new window)
+  // Full-screen display state
   const [dialogOpen, setDialogOpen] = useState(false);
   const [displayText, setDisplayText] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState("white");
+  const [textColor, setTextColor] = useState("black");
 
-
-  // Helper delay function that returns a promise
+  // Helper delay function
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  // Log events to the backend
+  // Log events to the backend (unchanged)
   const logEvent = async (message, subjectName, runID) => {
     const timestamp = new Date().toISOString();
     const logEntry = `[${timestamp}] ${message}`;
@@ -64,136 +76,166 @@ function App() {
     }
   };
 
-  const startRecordingSession = async (duration, subjectName, runID) => {
-    const dataFileName = `${subjectName}_data_run${runID}.json`;
-    await logEvent(`Preparing to start recording. Data file will be: ${dataFileName}`, subjectName, runID);
+  // Update display on full-screen dialog (unchanged)
+  const updateDisplay = (text, textColor, subjectName, runID) => {
+    setDisplayText(text);
+    setTextColor(textColor);
+    logEvent(`Updated display to '${text}' with text color '${textColor}'`, subjectName, runID);
+  };
+
+  // Open and close full-screen dialog (unchanged)
+  const openFullScreenDisplay = () => setDialogOpen(true);
+  const closeFullScreenDisplay = (subjectName, runID) => {
+    setDialogOpen(false);
+    logEvent("Recording display closed", subjectName, runID);
+  };
+
+  // A precise delay function (unchanged)
+  const preciseDelay = async (ms) => {
+    const start = performance.now();
+    await delay(ms);
+    const end = performance.now();
+    console.log(`Expected delay: ${ms}ms, Actual delay: ${end - start}ms`);
+  };
+
+  // Start recording on the backend (we still send a dummy duration value)
+  const startRecording = async (subjectName, runID, randomizedPairs) => {
+    const commonEventTime = new Date().toISOString();
+    await logEvent(`Common event: Recording initiated at ${commonEventTime}`, subjectName, runID);
+      
     try {
       const response = await fetch('http://127.0.0.1:8000/start_recording', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          duration: parseFloat(duration),
+          // Since we no longer want to stop automatically, the duration value is ignored.
+          duration: 0,
           subject_name: subjectName,
-          run_id: runID
-        })
+          run_id: runID,
+          sequence: randomizedPairs,
+          cursor_delay: parseFloat(cursorDuration),
+          word_delay: parseFloat(wordDuration),
+          common_event_time: commonEventTime
+        }),
       });
-
-
-      const data = await response.json(); 
-      console.log(data.status);
+      const data = await response.json();
+      console.log("Start Recording Response:", data);
       if (data.status === "error") {
-        await logEvent(`Error: ${data.message}`, subjectName, runID);
-        throw new Error(data.message); 
+        await logEvent(`Error starting recording: ${data.message}`, subjectName, runID);
+        throw new Error(data.message);
       }
-  
-      if (data.status === "Recording started") {
-        await logEvent(`Recording started successfully. Data file: ${dataFileName}`, subjectName, runID);
-      } else {
-        await logEvent(`Unexpected response from server: ${JSON.stringify(data)}`, subjectName, runID);
-        throw new Error("Unexpected server response");
-      }
+      await logEvent("Recording started successfully", subjectName, runID);
+      return true;
     } catch (error) {
       await logEvent(`Failed to start recording: ${error.message}`, subjectName, runID);
       throw error;
     }
   };
 
-  const updateDisplay = (text, bgColor, subjectName, runID) => {
-    setDisplayText(text);
-    setBackgroundColor(bgColor); // Correctly defined now
-    logEvent(`Updated display to '${text}' with background '${bgColor}'`, subjectName, runID);
-  };
-  
-  
-  
-
-  // Open and close the full-screen dialog
-  const openFullScreenDisplay = () => setDialogOpen(true);
-  const closeFullScreenDisplay = (subjectName, runID) => {
-    setDialogOpen(false);
-    logEvent("Recording display closed", subjectName, runID);
-  };
-  const preciseDelay = async (ms) => {
-    const start = performance.now();
-    await new Promise((resolve) => setTimeout(resolve, ms));
-    const end = performance.now();
-    console.log(`Expected delay: ${ms}ms, Actual delay: ${end - start}ms`);
-  };
-  
-
-  const startRecordingSequence = async (delayMs, cursorMs, wordMs, selectedWord, subjectName) => {
+  // New function to stop recording on the backend.
+  const stopRecording = async (runID, subjectName) => {
     try {
-      await logEvent("Starting delay period", subjectName, runCounter);
-      await preciseDelay(delayMs);
-      await logEvent(`Delay of ${delayMs / 1000} seconds completed`, subjectName, runCounter);
-  
-      // Open UI and display '+' (KEEP UI OPEN)
-      openFullScreenDisplay();
-      updateDisplay("+", "white", subjectName, runCounter);
-      await logEvent(`Displayed '+' for ${cursorMs / 1000} seconds`, subjectName, runCounter);
-      await preciseDelay(cursorMs);
-  
-
-      await logEvent(`Requesting recording session for '${selectedWord}' in orange`, subjectName, runCounter);
-      try {
-        await startRecordingSession(wordMs / 1000, subjectName, runCounter);
-      } catch (error) {
-        await logEvent(`Recording failed: ${error.message}`, subjectName, runCounter);
-        throw error; // Stop the sequence if recording session fails
-      }
-  
-      updateDisplay(selectedWord, "lightblue", subjectName, runCounter);
-      await logEvent(`Displayed word '${selectedWord}' in orange for ${wordMs / 1000} seconds`, subjectName, runCounter);
-      await preciseDelay(wordMs);
-      await logEvent(`Recording session completed for '${selectedWord}' in orange`, subjectName, runCounter);
-  
-      // SECOND RUN (Blue)
-      setRunCounter((prev) => prev + 1);
-      const secondRun = runCounter + 1;
-  
-      updateDisplay("+", "white", subjectName, secondRun);
-      await logEvent(`Displayed '+' for second session for ${cursorMs / 1000} seconds`, subjectName, secondRun);
-      await preciseDelay(cursorMs);
-  
-      await logEvent(`Requesting recording session for '${selectedWord}' in blue`, subjectName, secondRun);
-      try {
-        await startRecordingSession(wordMs / 1000, subjectName, secondRun);
-      } catch (error) {
-        await logEvent(`Recording failed: ${error.message}`, subjectName, secondRun);
-        throw error; // Stop the sequence if recording session fails
-      }
-  
-      updateDisplay(selectedWord, "blue", subjectName, secondRun);
-      await logEvent(`Displayed word '${selectedWord}' in blue for ${wordMs / 1000} seconds`, subjectName, secondRun);
-      await preciseDelay(wordMs);
-      await logEvent(`Recording session completed for '${selectedWord}' in blue`, subjectName, secondRun);
-  
-      // Close UI AFTER both runs finish
-      closeFullScreenDisplay(subjectName, secondRun);
+      const response = await fetch('http://127.0.0.1:8000/stop_recording', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ run_id: runID, subject_name: subjectName })
+      });
+      const data = await response.json();
+      console.log("Stop Recording Response:", data);
     } catch (error) {
-      await logEvent(`Error during recording sequence: ${error.message}`, subjectName, runCounter);
-      throw error; // Ensure the error stops the sequence
+      console.error("Error stopping recording:", error);
     }
   };
-  
-  
 
-  // Handle form submission and initiate the sequence
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatusMessage("Starting recording...");
-    const delayMs = parseFloat(delayDuration) * 1000;
-    const cursorMs = parseFloat(cursorDuration) * 1000;
-    const wordMs = parseFloat(wordDuration) * 1000;
-
+  // Main UI sequence: process 10 pairs sequentially.
+  const runRecordingSequence = async () => {
+    // Use timestamp as unique run ID.
+    const runID = Date.now();
     try {
-      await startRecordingSequence(delayMs, cursorMs, wordMs, selectedWord, subjectName);
+      setLoading(true);
+      setStatusMessage("Starting recording...");
+
+      // Randomize order of word pairs.
+      const randomizedPairs = shuffleArray(defaultWordPairs);
+      console.log("Randomized Pairs:", randomizedPairs);
+
+      // Start the recording on the backend.
+      await startRecording(subjectName, runID, randomizedPairs);
+
+      await logEvent("Starting delay period", subjectName, runID);
+
+      // Open full-screen display.
+      openFullScreenDisplay();
+
+      // Process each word pair sequentially.
+      for (let i = 0; i < randomizedPairs.length; i++) {
+        const [firstWord, secondWord] = randomizedPairs[i];
+        await logEvent(`Starting pair ${i + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
+
+        // First word block:
+        updateDisplay("+", "black", subjectName, runID);
+        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
+        await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+        updateDisplay(firstWord, "lightblue", subjectName, runID);
+        await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
+        await preciseDelay(parseFloat(wordDuration) * 1000);
+
+        updateDisplay("+", "black", subjectName, runID);
+        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
+        await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+        updateDisplay(firstWord, "blue", subjectName, runID);
+        await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
+        await preciseDelay(parseFloat(wordDuration) * 1000);
+
+        // Second word block:
+        updateDisplay("+", "black", subjectName, runID);
+        await logEvent(`Displayed cross ('+') for ${2 * cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
+        await preciseDelay(2 * parseFloat(cursorDuration) * 1000);
+
+        updateDisplay(secondWord, "lightblue", subjectName, runID);
+        await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
+        await preciseDelay(parseFloat(wordDuration) * 1000);
+
+        updateDisplay("+", "black", subjectName, runID);
+        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
+        await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+        updateDisplay(secondWord, "blue", subjectName, runID);
+        await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
+        await preciseDelay(parseFloat(wordDuration) * 1000);
+
+        // If not the last pair, display a cross for 4*cursorDuration between pairs.
+        if (i < randomizedPairs.length - 1) {
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${4 * cursorDuration} seconds (between pairs)`, subjectName, runID);
+          await preciseDelay(4 * parseFloat(cursorDuration) * 1000);
+        }
+      }
+
+      // Once UI sequence is done, close the display.
+      closeFullScreenDisplay(subjectName, runID);
+      setStatusMessage("UI sequence completed. Stopping recording shortly...");
+
+      // Wait a slight delay (e.g., 1 second) after UI calls before stopping the recording.
+      await preciseDelay(1000);
+
+      // Call new endpoint to stop the recording.
+      await stopRecording(runID, subjectName);
       setStatusMessage("Recording completed successfully!");
     } catch (error) {
+      await logEvent(`Error during recording sequence: ${error.message}`, subjectName, runID);
       setStatusMessage(`Error: ${error.message}`);
+      console.error("Error during recording sequence:", error);
     }
     setLoading(false);
+  };
+
+  // Handle form submission.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await runRecordingSequence();
   };
 
   return (
@@ -201,52 +243,27 @@ function App() {
       <Typography variant="h4" align="center" gutterBottom>
         Start EEG Recording
       </Typography>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
-      >
-      <TextField
-        label="Delay Duration (seconds)"
-        type="number"
-        value={delayDuration}
-        onChange={(e) => setDelayDuration(e.target.value)}
-        required
-        InputProps={{ inputProps: { step: 0.1, min: 0 } }} 
-      />
-      <TextField
-        label="Cursor Duration (seconds)"
-        type="number"
-        value={cursorDuration}
-        onChange={(e) => setCursorDuration(e.target.value)}
-        required
-        InputProps={{ inputProps: { step: 0.1, min: 0.1 } }} 
-      />
-      <TextField
-        label="Word Duration (seconds)"
-        type="number"
-        value={wordDuration}
-        onChange={(e) => setWordDuration(e.target.value)}
-        required
-        InputProps={{ inputProps: { step: 0.1, min: 0.1 } }} 
-      />
-
-        <FormControl fullWidth required>
-          <InputLabel id="word-select-label">Select Word</InputLabel>
-          <Select
-            labelId="word-select-label"
-            value={selectedWord || 'flower'} // default value 'flower'
-            label="Select Word"
-            onChange={(e) => setSelectedWord(e.target.value)}
-          >
-            <MenuItem value="flower">Flower</MenuItem>
-            <MenuItem value="flour">Flour</MenuItem>
-          </Select>
-        </FormControl>
+      <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <TextField
+          label="Cursor Duration (seconds)"
+          type="number"
+          value={cursorDuration}
+          onChange={(e) => setCursorDuration(e.target.value)}
+          required
+          InputProps={{ inputProps: { step: 0.01, min: 0.01 } }}
+        />
+        <TextField
+          label="Word Duration (seconds)"
+          type="number"
+          value={wordDuration}
+          onChange={(e) => setWordDuration(e.target.value)}
+          required
+          InputProps={{ inputProps: { step: 0.01, min: 0.01 } }}
+        />
         <TextField
           label="Subject Name"
           type="text"
-          value={subjectName || 'Bread'} // default value 'Bread'
+          value={subjectName}
           onChange={(e) => setSubjectName(e.target.value)}
           required
         />
@@ -264,24 +281,32 @@ function App() {
 
       {/* Full-screen dialog acting as the recording display */}
       <Dialog
-  open={dialogOpen}
-  fullScreen
-  PaperProps={{
-    sx: {
-      backgroundColor: backgroundColor, // Now this works
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }
-  }}
->
-  <DialogContent>
-    <Typography variant="h1" align="center" sx={{ color: "black" }}>
-      {displayText} {/* Always black text */}
-    </Typography>
-  </DialogContent>
-</Dialog>
-
+        open={dialogOpen}
+        fullScreen
+        PaperProps={{
+          sx: {
+            backgroundColor: "white",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: "100vh",
+          }
+        }}
+      >
+        <DialogContent
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            width: "100%",
+          }}
+        >
+          <Typography variant="h1" align="center" sx={{ color: textColor, fontSize: "6rem" }}>
+            {displayText}
+          </Typography>
+        </DialogContent>
+      </Dialog>
     </Container>
   );
 }
