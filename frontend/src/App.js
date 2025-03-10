@@ -24,7 +24,7 @@ const shuffleArray = (array) => {
 
 const num_trials = 5;
 
-// ... [imports and helper functions remain unchanged]
+// ... [other helper functions remain unchanged]
 
 function App() {
   // Form state and UI state remain unchanged.
@@ -135,10 +135,11 @@ function App() {
     }
   };
 
-  // Main UI sequence: process 10 pairs sequentially.
+  // Main UI sequence: process word pairs sequentially.
   const runRecordingSequence = async () => {
     // Use timestamp as unique run ID.
     const runID = Date.now();
+    // First set of word pairs (flat array)
     let defaultWordPairs = [
       "Flower", "Flour",
       "Knight", "Night",
@@ -147,6 +148,7 @@ function App() {
       "Pair", "Pear",
       "Sea", "See"
     ];
+    // Shuffle once and store the flat list.
     let randomizedPairs = shuffleArray(defaultWordPairs);
     setLoading(true);
     setStatusMessage("Starting recording...");
@@ -155,127 +157,116 @@ function App() {
     openFullScreenDisplay();
 
     try {
-    for (let i = 0; i < num_trials; i++) {
-      defaultWordPairs = [
-        "Flower", "Flour",
-        "Knight", "Night",
-        "Sun", "Son",
-        "Right", "Write",
-        "Pair", "Pear",
-        "Sea", "See"
-      ];
-
-      for (let i = 0; i < randomizedPairs.length; i++) {
-        // Randomize order of word pairs.
+      for (let trial = 0; trial < num_trials; trial++) {
+        // First block with the first set of word pairs.
+        defaultWordPairs = [
+          "Flower", "Flour",
+          "Knight", "Night",
+          "Sun", "Son",
+          "Right", "Write",
+          "Pair", "Pear",
+          "Sea", "See"
+        ];
         randomizedPairs = shuffleArray(defaultWordPairs);
-        console.log("Randomized Pairs:", randomizedPairs);      
+        console.log("Randomized Pairs:", randomizedPairs);
 
-      // Process each word pair sequentially.
-        const [firstWord, secondWord] = randomizedPairs[i];
-        await logEvent(`Starting pair ${i + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
+        // Iterate in steps of 2 since our list is flat.
+        for (let i = 0; i < randomizedPairs.length; i += 2) {
+          const firstWord = randomizedPairs[i];
+          const secondWord = randomizedPairs[i + 1];
+          await logEvent(`Starting pair ${i/2 + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
 
-        // First word block:
+          // First word block:
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(firstWord, "lightblue", subjectName, runID);
+          await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(firstWord, "blue", subjectName, runID);
+          await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          // Second word block:
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(secondWord, "lightblue", subjectName, runID);
+          await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(secondWord, "blue", subjectName, runID);
+          await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+        }
+
+        // Second block with a different set of word pairs.
+        defaultWordPairs = [
+          "Quick", "Fast",
+          "Smart", "Clever",
+          "Big", "Large",
+          "Pair", "Couple",
+          "Sea", "See",
+          "up", "down",
+          "left", "right"
+        ];
+        randomizedPairs = shuffleArray(defaultWordPairs);
+        console.log("Randomized Pairs:", randomizedPairs);
         updateDisplay("+", "black", subjectName, runID);
         await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
         await preciseDelay(parseFloat(cursorDuration) * 1000);
 
-        updateDisplay(firstWord, "lightblue", subjectName, runID);
-        await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
+        for (let i = 0; i < randomizedPairs.length; i += 2) {
+          const firstWord = randomizedPairs[i];
+          const secondWord = randomizedPairs[i + 1];
+          await logEvent(`Starting pair ${i/2 + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
 
+          // First word block:
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(firstWord, "lightblue", subjectName, runID);
+          await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(firstWord, "blue", subjectName, runID);
+          await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          // Second word block:
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(secondWord, "lightblue", subjectName, runID);
+          await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+
+          updateDisplay("+", "black", subjectName, runID);
+          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
+          await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+          updateDisplay(secondWord, "blue", subjectName, runID);
+          await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
+          await preciseDelay(parseFloat(wordDuration) * 1000);
+        }
         updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(firstWord, "blue", subjectName, runID);
-        await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        // Second word block:
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(secondWord, "lightblue", subjectName, runID);
-        await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(secondWord, "blue", subjectName, runID);
-        await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        // // If not the last pair, display a cross for 2*cursorDuration between pairs.
-        // if (i < randomizedPairs.length - 1) {
-        //   updateDisplay("+", "black", subjectName, runID);
-        //   await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (between pairs)`, subjectName, runID);
-        //   await preciseDelay(parseFloat(cursorDuration) * 1000);
-        // }
-      }
-      defaultWordPairs = [
-        "Quick","Fast",
-        "Smart", "Clever",
-        "Big", "Large",
-        "Pair", "Couple",
-        "Sea", "See",
-        "up", "down",
-        "left","right"
-      ];
-      // Randomize order of word pairs.
-      randomizedPairs = shuffleArray(defaultWordPairs);
-      console.log("Randomized Pairs:", randomizedPairs);
-      updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-      for (let i = 0; i < randomizedPairs.length; i++) {
-        const [firstWord, secondWord] = randomizedPairs[i];
-        await logEvent(`Starting pair ${i + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
-
-        // First word block:
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(firstWord, "lightblue", subjectName, runID);
-        await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(firstWord, "blue", subjectName, runID);
-        await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        // Second word block:
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(secondWord, "lightblue", subjectName, runID);
-        await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        updateDisplay(secondWord, "blue", subjectName, runID);
-        await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
-        await preciseDelay(parseFloat(wordDuration) * 1000);
-
-        // // If not the last pair, display a cross for 2*cursorDuration between pairs.
-        // if (i < randomizedPairs.length - 1) {
-        //   updateDisplay("+", "black", subjectName, runID);
-        //   await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (between pairs)`, subjectName, runID);
-        //   await preciseDelay(parseFloat(cursorDuration) * 1000);
-        // }
-      }
-      updateDisplay("+", "black", subjectName, runID);
         await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
         await preciseDelay(parseFloat(cursorDuration) * 1000);
       }
