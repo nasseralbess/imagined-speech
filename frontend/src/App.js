@@ -140,12 +140,12 @@ function App() {
     // Use timestamp as unique run ID.
     const runID = Date.now();
     let defaultWordPairs = [
-      ["Flower", "Flour"],
-      ["Knight", "Night"],
-      ["Sun", "Son"],
-      ["Right", "Write"],
-      ["Pair", "Pear"],
-      ["Sea", "See"]
+      "Flower", "Flour",
+      "Knight", "Night",
+      "Sun", "Son",
+      "Right", "Write",
+      "Pair", "Pear",
+      "Sea", "See"
     ];
     let randomizedPairs = shuffleArray(defaultWordPairs);
     setLoading(true);
@@ -157,12 +157,12 @@ function App() {
     try {
     for (let i = 0; i < num_trials; i++) {
       defaultWordPairs = [
-        ["Flower", "Flour"],
-        ["Knight", "Night"],
-        ["Sun", "Son"],
-        ["Right", "Write"],
-        ["Pair", "Pear"],
-        ["Sea", "See"]
+        "Flower", "Flour",
+        "Knight", "Night",
+        "Sun", "Son",
+        "Right", "Write",
+        "Pair", "Pear",
+        "Sea", "See"
       ];
 
       for (let i = 0; i < randomizedPairs.length; i++) {
@@ -216,11 +216,13 @@ function App() {
         // }
       }
       defaultWordPairs = [
-        ["Quick","Fast"],
-        ["Smart", "Clever"],
-        ["Big", "Large"],
-        ["Pair", "Couple"],
-        ["Sea", "See"]
+        "Quick","Fast",
+        "Smart", "Clever",
+        "Big", "Large",
+        "Pair", "Couple",
+        "Sea", "See",
+        "up", "down",
+        "left","right"
       ];
       // Randomize order of word pairs.
       randomizedPairs = shuffleArray(defaultWordPairs);
