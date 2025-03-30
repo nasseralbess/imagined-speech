@@ -1,0 +1,12 @@
+{
+    "Markers": [
+    ],
+    "connectionType": "dongle",
+    "exportApp": "com.satiani.imagined_test_eeg",
+    "exportTime": "2025-03-17T15:18:52.779+03:00",
+    "headsetType": "EPOCX",
+    "mappings": null,
+    "montageType": "UNKNOWN",
+    "recordId": "70c09920-9ef0-416a-b5bc-01bc411d055c",
+    "user": "satiani"
+}

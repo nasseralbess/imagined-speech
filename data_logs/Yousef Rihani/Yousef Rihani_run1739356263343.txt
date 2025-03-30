@@ -1,0 +1,107 @@
+[2025-02-12T10:31:03.343Z] Common event: Recording initiated at 2025-02-12T10:31:03.343Z
+[2025-02-12T10:31:04.955Z] Recording started successfully
+[2025-02-12T10:31:04.959Z] Starting delay period
+[2025-02-12T10:31:04.963Z] Starting pair 1: [Sea, Ocean]
+[2025-02-12T10:31:05.002Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:05.002Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:31:06.031Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-02-12T10:31:06.032Z] Displayed first word 'Sea' for 2 seconds
+[2025-02-12T10:31:08.048Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:08.048Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:31:09.059Z] Updated display to 'Sea' with text color 'blue'
+[2025-02-12T10:31:09.059Z] Displayed first word 'Sea' again for 2 seconds
+[2025-02-12T10:31:11.072Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:11.073Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-02-12T10:31:12.096Z] Updated display to 'Ocean' with text color 'lightblue'
+[2025-02-12T10:31:12.096Z] Displayed second word 'Ocean' for 2 seconds
+[2025-02-12T10:31:14.115Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:14.115Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-02-12T10:31:15.148Z] Updated display to 'Ocean' with text color 'blue'
+[2025-02-12T10:31:15.149Z] Displayed second word 'Ocean' again for 2 seconds
+[2025-02-12T10:31:17.164Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:17.165Z] Displayed cross ('+') for 1 seconds (between pairs)
+[2025-02-12T10:31:18.180Z] Starting pair 2: [Big, Large]
+[2025-02-12T10:31:18.187Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:18.188Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:31:19.203Z] Updated display to 'Big' with text color 'lightblue'
+[2025-02-12T10:31:19.204Z] Displayed first word 'Big' for 2 seconds
+[2025-02-12T10:31:21.214Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:21.215Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:31:22.231Z] Updated display to 'Big' with text color 'blue'
+[2025-02-12T10:31:22.231Z] Displayed first word 'Big' again for 2 seconds
+[2025-02-12T10:31:24.240Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:24.241Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-02-12T10:31:25.260Z] Updated display to 'Large' with text color 'lightblue'
+[2025-02-12T10:31:25.260Z] Displayed second word 'Large' for 2 seconds
+[2025-02-12T10:31:27.281Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:27.281Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-02-12T10:31:28.298Z] Updated display to 'Large' with text color 'blue'
+[2025-02-12T10:31:28.298Z] Displayed second word 'Large' again for 2 seconds
+[2025-02-12T10:31:30.314Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:30.315Z] Displayed cross ('+') for 1 seconds (between pairs)
+[2025-02-12T10:31:31.332Z] Starting pair 3: [Pair, Couple]
+[2025-02-12T10:31:31.346Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:31.347Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:31:32.362Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-02-12T10:31:32.363Z] Displayed first word 'Pair' for 2 seconds
+[2025-02-12T10:31:34.381Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:34.382Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:31:35.398Z] Updated display to 'Pair' with text color 'blue'
+[2025-02-12T10:31:35.398Z] Displayed first word 'Pair' again for 2 seconds
+[2025-02-12T10:31:37.414Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:37.415Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-02-12T10:31:38.431Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-02-12T10:31:38.432Z] Displayed second word 'Couple' for 2 seconds
+[2025-02-12T10:31:40.445Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:40.446Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-02-12T10:31:41.481Z] Updated display to 'Couple' with text color 'blue'
+[2025-02-12T10:31:41.482Z] Displayed second word 'Couple' again for 2 seconds
+[2025-02-12T10:31:43.497Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:43.497Z] Displayed cross ('+') for 1 seconds (between pairs)
+[2025-02-12T10:31:44.514Z] Starting pair 4: [Quick, Fast]
+[2025-02-12T10:31:44.519Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:44.519Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:31:45.531Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-02-12T10:31:45.531Z] Displayed first word 'Quick' for 2 seconds
+[2025-02-12T10:31:47.548Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:47.548Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:31:48.564Z] Updated display to 'Quick' with text color 'blue'
+[2025-02-12T10:31:48.565Z] Displayed first word 'Quick' again for 2 seconds
+[2025-02-12T10:31:50.575Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:50.575Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-02-12T10:31:51.590Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-02-12T10:31:51.591Z] Displayed second word 'Fast' for 2 seconds
+[2025-02-12T10:31:53.613Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:53.613Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-02-12T10:31:54.631Z] Updated display to 'Fast' with text color 'blue'
+[2025-02-12T10:31:54.631Z] Displayed second word 'Fast' again for 2 seconds
+[2025-02-12T10:31:56.648Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:56.649Z] Displayed cross ('+') for 1 seconds (between pairs)
+[2025-02-12T10:31:57.661Z] Starting pair 5: [Smart, Clever]
+[2025-02-12T10:31:57.665Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:31:57.666Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:31:58.680Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-02-12T10:31:58.680Z] Displayed first word 'Smart' for 2 seconds
+[2025-02-12T10:32:00.698Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:32:00.698Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:32:01.710Z] Updated display to 'Smart' with text color 'blue'
+[2025-02-12T10:32:01.710Z] Displayed first word 'Smart' again for 2 seconds
+[2025-02-12T10:32:03.721Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:32:03.721Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-02-12T10:32:04.731Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-02-12T10:32:04.731Z] Displayed second word 'Clever' for 2 seconds
+[2025-02-12T10:32:06.745Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:32:06.746Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-02-12T10:32:07.762Z] Updated display to 'Clever' with text color 'blue'
+[2025-02-12T10:32:07.763Z] Displayed second word 'Clever' again for 2 seconds
+[2025-02-12T10:32:09.779Z] Recording display closed
+[2025-02-12 13:31:03.367] Attempting to open connection to headset...
+[2025-02-12 13:31:04.951] Session created successfully. Headset found!
+[2025-02-12 13:31:04.952] Creating record: Yousef Rihani1739356263343
+[2025-02-12 13:31:04.977] Record created with ID: ea2e0330-b987-4034-8550-4b34d3b88730
+[2025-02-12 13:32:10.792] Stopping record...
+[2025-02-12 13:32:10.828] Recording stopped.
+[2025-02-12 13:32:10.828] Post-processing in progress...
+[2025-02-12 13:32:13.109] Post-processing completed for record ID: ea2e0330-b987-4034-8550-4b34d3b88730
+[2025-02-12 13:32:13.111] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[2025-02-12 13:32:13.158] Data export completed successfully.

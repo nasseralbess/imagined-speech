@@ -1,0 +1,19 @@
+[2025-02-12T10:33:56.311Z] Common event: Recording initiated at 2025-02-12T10:33:56.311Z
+[2025-02-12T10:33:57.867Z] Recording started successfully
+[2025-02-12T10:33:57.872Z] Starting delay period
+[2025-02-12T10:33:57.876Z] Starting pair 1: [Smart, Clever]
+[2025-02-12T10:33:57.906Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:33:57.906Z] Displayed cross ('+') for 0.25 seconds (before first word)
+[2025-02-12T10:33:58.177Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-02-12T10:33:58.177Z] Displayed first word 'Smart' for 2 seconds
+[2025-02-12T10:34:01.028Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:01.029Z] Displayed cross ('+') for 0.25 seconds (repeating first word)
+[2025-02-12T10:34:01.371Z] Updated display to 'Smart' with text color 'blue'
+[2025-02-12T10:34:01.371Z] Displayed first word 'Smart' again for 2 seconds
+[2025-02-12 13:33:56.334] Attempting to open connection to headset...
+[2025-02-12 13:33:57.861] Session created successfully. Headset found!
+[2025-02-12 13:33:57.861] Creating record: Test11739356436311
+[2025-02-12 13:33:57.885] Record created with ID: 2029d4f4-bf85-4d88-8523-3f23e0e4a83b
+[2025-02-12 13:36:22.294] Post-processing completed for record ID: 9bb2b698-1447-4e32-b909-1488376a6d92
+[2025-02-12 13:36:22.294] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[2025-02-12 13:36:22.500] Data export completed successfully.

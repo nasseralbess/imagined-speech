@@ -1,0 +1,36 @@
+[2025-02-12T10:34:08.575Z] Common event: Recording initiated at 2025-02-12T10:34:08.575Z
+[2025-02-12T10:34:10.245Z] Recording started successfully
+[2025-02-12T10:34:10.251Z] Starting delay period
+[2025-02-12T10:34:10.256Z] Starting pair 1: [Smart, Clever]
+[2025-02-12T10:34:10.277Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:10.278Z] Displayed cross ('+') for 4 seconds (before first word)
+[2025-02-12T10:34:14.312Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-02-12T10:34:14.313Z] Displayed first word 'Smart' for 0.1 seconds
+[2025-02-12T10:34:14.425Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:14.425Z] Displayed cross ('+') for 4 seconds (repeating first word)
+[2025-02-12T10:34:18.447Z] Updated display to 'Smart' with text color 'blue'
+[2025-02-12T10:34:18.448Z] Displayed first word 'Smart' again for 0.1 seconds
+[2025-02-12T10:34:18.561Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:18.561Z] Displayed cross ('+') for 4 seconds (transitioning to second word)
+[2025-02-12T10:34:22.578Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-02-12T10:34:22.578Z] Displayed second word 'Clever' for 0.1 seconds
+[2025-02-12T10:34:22.697Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:22.698Z] Displayed cross ('+') for 4 seconds (repeating second word)
+[2025-02-12T10:34:26.708Z] Updated display to 'Clever' with text color 'blue'
+[2025-02-12T10:34:26.709Z] Displayed second word 'Clever' again for 0.1 seconds
+[2025-02-12T10:34:26.820Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:26.821Z] Displayed cross ('+') for 4 seconds (between pairs)
+[2025-02-12T10:34:30.831Z] Starting pair 2: [Pair, Couple]
+[2025-02-12T10:34:30.836Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:30.836Z] Displayed cross ('+') for 4 seconds (before first word)
+[2025-02-12T10:34:34.847Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-02-12T10:34:34.848Z] Displayed first word 'Pair' for 0.1 seconds
+[2025-02-12T10:34:34.964Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:34:34.965Z] Displayed cross ('+') for 4 seconds (repeating first word)
+[2025-02-12 13:34:08.594] Attempting to open connection to headset...
+[2025-02-12 13:34:10.242] Session created successfully. Headset found!
+[2025-02-12 13:34:10.242] Creating record: Test11739356448575
+[2025-02-12 13:34:10.270] Record created with ID: 32d1042e-6359-4a88-aa32-0d72e32c4217
+[2025-02-12 13:36:22.293] Post-processing completed for record ID: 9bb2b698-1447-4e32-b909-1488376a6d92
+[2025-02-12 13:36:22.294] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[2025-02-12 13:36:22.310] Data export completed successfully.

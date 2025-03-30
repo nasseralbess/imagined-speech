@@ -1,0 +1,18 @@
+[2025-02-12T10:32:16.385Z] Common event: Recording initiated at 2025-02-12T10:32:16.385Z
+[2025-02-12T10:32:17.971Z] Recording started successfully
+[2025-02-12T10:32:17.977Z] Starting delay period
+[2025-02-12T10:32:17.984Z] Starting pair 1: [Quick, Fast]
+[2025-02-12T10:32:18.002Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:32:18.002Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-02-12T10:32:19.031Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-02-12T10:32:19.031Z] Displayed first word 'Quick' for 2 seconds
+[2025-02-12 13:32:16.401] Attempting to open connection to headset...
+[2025-02-12 13:32:17.966] Session created successfully. Headset found!
+[2025-02-12 13:32:17.966] Creating record: Yousef Rihani1739356336384
+[2025-02-12 13:32:17.995] Record created with ID: c534d286-51d5-418b-aea6-e7dec97476fd
+[2025-02-12 13:32:18.455] Post-processing completed for record ID: 0b526a3a-94b6-4999-9038-d8869788f25c
+[2025-02-12 13:32:18.456] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
+[2025-02-12 13:32:19.206] Data export completed successfully.[2025-02-12T10:32:21.048Z] Updated display to '+' with text color 'black'
+[2025-02-12T10:32:21.049Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-02-12T10:32:22.080Z] Updated display to 'Quick' with text color 'blue'
+[2025-02-12T10:32:22.080Z] Displayed first word 'Quick' again for 2 seconds
