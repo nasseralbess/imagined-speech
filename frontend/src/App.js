@@ -134,6 +134,56 @@ function App() {
       console.error("Error stopping recording:", error);
     }
   };
+  // New function to run a test sequence (no backend calls)
+  const runTestSequence = async () => {
+    setLoading(true);
+    setStatusMessage("Test run in progress...");
+    setDialogOpen(true);
+
+    const testWordPairs = [
+      "Flower", "Flour",
+      "Knight", "Night",
+      "Sun", "Son",
+      "Right", "Write",
+      "Pair", "Pear",
+      "Sea", "See"
+    ];
+
+    for (let i = 0; i < testWordPairs.length; i += 2) {
+      const firstWord = testWordPairs[i];
+      const secondWord = testWordPairs[i + 1];
+
+      // First word block
+      setDisplayText("+"); setTextColor("black");
+      await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+      setDisplayText(firstWord); setTextColor("lightblue");
+      await preciseDelay(parseFloat(wordDuration) * 1000);
+
+      setDisplayText("+"); setTextColor("black");
+      await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+      setDisplayText(firstWord); setTextColor("blue");
+      await preciseDelay(parseFloat(wordDuration) * 1000);
+
+      // Second word block
+      setDisplayText("+"); setTextColor("black");
+      await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+      setDisplayText(secondWord); setTextColor("lightblue");
+      await preciseDelay(parseFloat(wordDuration) * 1000);
+
+      setDisplayText("+"); setTextColor("black");
+      await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+      setDisplayText(secondWord); setTextColor("blue");
+      await preciseDelay(parseFloat(wordDuration) * 1000);
+    }
+
+    setDialogOpen(false);
+    setStatusMessage("Test run completed.");
+    setLoading(false);
+  };
 
   // Main UI sequence: process word pairs sequentially.
   const runRecordingSequence = async () => {
@@ -152,7 +202,11 @@ function App() {
     let randomizedPairs = shuffleArray(defaultWordPairs);
     setLoading(true);
     setStatusMessage("Starting recording...");
-    await startRecording(subjectName, runID, randomizedPairs);
+    const nestedPairs = [];
+    for (let i = 0; i < randomizedPairs.length; i += 2) {
+      nestedPairs.push([randomizedPairs[i], randomizedPairs[i + 1]]);
+    }
+    await startRecording(subjectName, runID, nestedPairs);
     await logEvent("Starting delay period", subjectName, runID);
     openFullScreenDisplay();
 
@@ -218,8 +272,8 @@ function App() {
           "Big", "Large",
           "Pair", "Couple",
           "Sea", "See",
-          "up", "down",
-          "left", "right"
+          "Up", "Down",
+          "Left", "Right"
         ];
         randomizedPairs = shuffleArray(defaultWordPairs);
         console.log("Randomized Pairs:", randomizedPairs);
@@ -281,12 +335,12 @@ function App() {
       // Call new endpoint to stop the recording.
       await stopRecording(runID, subjectName);
       setStatusMessage("Recording completed successfully!");
+      setLoading(false);
     } catch (error) {
       await logEvent(`Error during recording sequence: ${error.message}`, subjectName, runID);
       setStatusMessage(`Error: ${error.message}`);
       console.error("Error during recording sequence:", error);
-    }
-    setLoading(false);
+    } 
   };
 
   // Handle form submission.
@@ -326,6 +380,9 @@ function App() {
         />
         <Button type="submit" variant="contained" color="primary" disabled={loading}>
           {loading ? <CircularProgress size={24} color="inherit" /> : "Start Recording"}
+        </Button>
+        <Button variant="outlined" color="secondary" onClick={runTestSequence} disabled={loading}>
+          Test Run
         </Button>
       </Box>
       {statusMessage && (
