@@ -4,3 +4,9 @@
 ## Train a classifier on the overt data first, see if it can classify up, down, left, right. This way, we'll get an answer regarding whether the encoder decoder gimmick is gonna yield anything
 ## Then hopefully if that works I'll train on the covert data to establish a classifier for the paper 
 ## We'll see what the performance diff is gonna be
+## Subtract the mean 
+## Take the Gamma only for the overt data (High Gamma)
+## If Gamma doesn't work, deconstruct into different rythms
+## Wavelet transform
+## PCA
+## 35: lower gamma, 35 - 65: high gamma
