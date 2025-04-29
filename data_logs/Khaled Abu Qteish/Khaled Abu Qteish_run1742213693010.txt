@@ -407,7 +407,8 @@
 [2025-03-17 15:14:54.216] Record created with ID: 70c09920-9ef0-416a-b5bc-01bc411d055c
 [2025-03-17 15:18:52.100] Post-processing completed for record ID: 70c09920-9ef0-416a-b5bc-01bc411d055c
 [2025-03-17 15:18:52.100] Exporting record to folder: C:/Users/bess/Desktop/emotiv-wrapper/data
-[2025-03-17 15:18:52.795] Data export completed successfully.[2025-03-17T12:18:53.214Z] Updated display to 'Up' with text color 'lightblue'
+[2025-03-17 15:18:52.795] Data export completed successfully.
+[2025-03-17T12:18:53.214Z] Updated display to 'Up' with text color 'lightblue'
 [2025-03-17T12:18:53.214Z] Displayed first word 'Up' for 1.5 seconds
 [2025-03-17T12:18:54.729Z] Updated display to '+' with text color 'black'
 [2025-03-17T12:18:54.729Z] Displayed cross ('+') for 1 seconds (repeating first word)
