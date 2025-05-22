@@ -170,7 +170,7 @@ async def start_recording(request: RecordRequest):
     r.record_title = request.subject_name + str(request.run_id)
     r.record_description = ''
     r.record_export_folder = r'C:/Users/bess/Desktop/emotiv-wrapper/data'
-    r.record_export_data_types = ['EEG', 'MOTION', 'PM', 'BP']
+    r.record_export_data_types = ['EEG', 'MOTION', 'PM', 'MC', 'FE' ]
     r.record_export_format = 'CSV'
     r.record_export_version = 'V2'
 
