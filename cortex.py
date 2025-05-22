@@ -748,7 +748,8 @@ class Cortex(Dispatcher):
 
         for key, value in kwargs.items():
             params_val.update({key: value})
-
+        # if export_format == 'CSV' and 'version' in params_val:
+        #     params_val.pop('version')
         export_record_request = {
             "jsonrpc": "2.0",
             "id":EXPORT_RECORD_ID,

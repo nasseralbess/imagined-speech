@@ -1,0 +1,10 @@
+[2025-05-22T12:00:37.022Z] Common event: Recording initiated at 2025-05-22T12:00:37.022Z
+[2025-05-22T12:00:38.616Z] Recording started successfully
+[2025-05-22T12:00:38.621Z] Starting delay period
+[2025-05-22T12:00:38.627Z] Starting pair 1: [Write, Son]
+[2025-05-22T12:00:38.658Z] Updated display to '+' with text color 'black'
+[2025-05-22T12:00:38.659Z] Displayed cross ('+') for 0.25 seconds (before first word)
+[2025-05-22T12:00:38.932Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-22T12:00:38.933Z] Displayed first word 'Write' for 1 seconds
+[2025-05-22T12:00:40.003Z] Updated display to '+' with text color 'black'
+[2025-05-22T12:00:40.003Z] Displayed cross ('+') for 0.25 seconds (repeating first word)

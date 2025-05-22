@@ -1,0 +1,17 @@
+[2025-05-22T11:43:36.214Z] Common event: Recording initiated at 2025-05-22T11:43:36.214Z
+[2025-05-22T11:43:37.743Z] Recording started successfully
+[2025-05-22T11:43:37.771Z] Starting delay period
+[2025-05-22T11:43:37.777Z] Starting pair 1: [Pear, Night]
+[2025-05-22T11:43:37.824Z] Updated display to '+' with text color 'black'
+[2025-05-22T11:43:37.824Z] Displayed cross ('+') for 0.25 seconds (before first word)
+[2025-05-22T11:43:39.001Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-22T11:43:39.002Z] Displayed first word 'Pear' for 1 seconds
+[2025-05-22T11:43:40.178Z] Updated display to '+' with text color 'black'
+[2025-05-22T11:43:40.182Z] Displayed cross ('+') for 0.25 seconds (repeating first word)
+[2025-05-22T11:43:40.478Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-22T11:43:40.478Z] Displayed first word 'Pear' again for 1 seconds
+[2025-05-22T11:43:41.497Z] Updated display to '+' with text color 'black'
+[2025-05-22T11:43:41.497Z] Displayed cross ('+') for 0.25 seconds (transitioning to second word)
+[2025-05-22T11:43:41.763Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-22T11:43:41.764Z] Displayed second word 'Night' for 1 seconds
+[2025-05-22T11:43:42.999Z] Updated display to '+' with text color 'black'

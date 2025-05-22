@@ -74,8 +74,10 @@ class Record():
         self.c.stop_record()
 
     def export_record(self, folder, stream_types, format, record_ids, version, **kwargs):
+    # def export_record(self, folder, stream_types, format, record_ids, **kwargs):
         self.log(f"Exporting record to folder: {folder}")
         self.c.export_record(folder, stream_types, format, record_ids, version, **kwargs)
+        # self.c.export_record(folder, stream_types, format, record_ids, **kwargs)
 
     def wait(self, record_duration_s):
         self.log("Recording started...")
@@ -169,10 +171,11 @@ async def start_recording(request: RecordRequest):
     )
     r.record_title = request.subject_name + str(request.run_id)
     r.record_description = ''
-    r.record_export_folder = r'C:/Users/bess/Desktop/emotiv-wrapper/data'
-    r.record_export_data_types = ['EEG', 'MOTION', 'PM', 'MC', 'FE' ]
+    r.record_export_folder = r'C:/Users/bess/Desktop/imagined-speech/data'
+    r.record_export_data_types = ['EEG', 'MOTION', 'PM', 'BP', 'MC', 'FE' ]
     r.record_export_format = 'CSV'
     r.record_export_version = 'V2'
+
 
     with open(f"data/{request.subject_name}_{request.run_id}_params.json", 'w') as f:
         json.dump({
