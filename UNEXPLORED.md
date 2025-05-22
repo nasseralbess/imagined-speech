@@ -10,3 +10,4 @@
 ## Wavelet transform
 ## PCA
 ## 35: lower gamma, 35 - 65: high gamma
+## Further explore the emotiv api, see if we can save in a different format other than csv, maybe fif. Are there any built in cleaning tools available in the sdk that we can use to clean the data?
