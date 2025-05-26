@@ -1,0 +1,3 @@
+[2025-05-26T13:46:53.671Z] Common event: Recording initiated at 2025-05-26T13:46:53.670Z
+[2025-05-26T13:46:56.722Z] Error starting recording: Headset not found. Aborting recording.
+[2025-05-26T13:46:56.741Z] Failed to start recording: Headset not found. Aborting recording.
