@@ -1,0 +1,1139 @@
+[2025-05-28T09:21:08.255Z] Common event: Recording initiated at 2025-05-28T09:21:08.255Z
+[2025-05-28T09:21:10.377Z] Recording started successfully
+[2025-05-28T09:21:10.385Z] Starting delay period
+[2025-05-28T09:21:10.389Z] Starting pair 1: [Pear, Sea]
+[2025-05-28T09:21:10.404Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:10.405Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:21:11.427Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-28T09:21:11.428Z] Displayed first word 'Pear' for 1.5 seconds
+[2025-05-28T09:21:12.942Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:12.942Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:21:13.957Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-28T09:21:13.957Z] Displayed first word 'Pear' again for 1.5 seconds
+[2025-05-28T09:21:15.477Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:15.479Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:21:16.512Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:21:16.513Z] Displayed second word 'Sea' for 1.5 seconds
+[2025-05-28T09:21:18.044Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:18.045Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:21:19.061Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:21:19.062Z] Displayed second word 'Sea' again for 1.5 seconds
+[2025-05-28T09:21:20.594Z] Starting pair 2: [Knight, Write]
+[2025-05-28T09:21:20.607Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:20.608Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:21:21.644Z] Updated display to 'Knight' with text color 'lightblue'
+[2025-05-28T09:21:21.645Z] Displayed first word 'Knight' for 1.5 seconds
+[2025-05-28T09:21:23.177Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:23.178Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:21:24.194Z] Updated display to 'Knight' with text color 'blue'
+[2025-05-28T09:21:24.195Z] Displayed first word 'Knight' again for 1.5 seconds
+[2025-05-28T09:21:25.710Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:25.711Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:21:26.744Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-28T09:21:26.744Z] Displayed second word 'Write' for 1.5 seconds
+[2025-05-28T09:21:28.256Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:28.256Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:21:29.264Z] Updated display to 'Write' with text color 'blue'
+[2025-05-28T09:21:29.265Z] Displayed second word 'Write' again for 1.5 seconds
+[2025-05-28T09:21:30.794Z] Starting pair 3: [Flower, See]
+[2025-05-28T09:21:30.805Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:30.806Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:21:31.840Z] Updated display to 'Flower' with text color 'lightblue'
+[2025-05-28T09:21:31.841Z] Displayed first word 'Flower' for 1.5 seconds
+[2025-05-28T09:21:33.377Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:33.378Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:21:34.411Z] Updated display to 'Flower' with text color 'blue'
+[2025-05-28T09:21:34.412Z] Displayed first word 'Flower' again for 1.5 seconds
+[2025-05-28T09:21:35.944Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:35.945Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:21:36.973Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:21:36.974Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:21:38.509Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:38.509Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:21:39.528Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:21:39.529Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:21:41.077Z] Starting pair 4: [Flour, Sun]
+[2025-05-28T09:21:41.083Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:41.083Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:21:42.094Z] Updated display to 'Flour' with text color 'lightblue'
+[2025-05-28T09:21:42.095Z] Displayed first word 'Flour' for 1.5 seconds
+[2025-05-28T09:21:43.611Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:43.611Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:21:44.628Z] Updated display to 'Flour' with text color 'blue'
+[2025-05-28T09:21:44.629Z] Displayed first word 'Flour' again for 1.5 seconds
+[2025-05-28T09:21:46.156Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:46.157Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:21:47.194Z] Updated display to 'Sun' with text color 'lightblue'
+[2025-05-28T09:21:47.196Z] Displayed second word 'Sun' for 1.5 seconds
+[2025-05-28T09:21:48.728Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:48.729Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:21:49.756Z] Updated display to 'Sun' with text color 'blue'
+[2025-05-28T09:21:49.757Z] Displayed second word 'Sun' again for 1.5 seconds
+[2025-05-28T09:21:51.294Z] Starting pair 5: [Pair, Night]
+[2025-05-28T09:21:51.306Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:51.306Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:21:52.334Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:21:52.334Z] Displayed first word 'Pair' for 1.5 seconds
+[2025-05-28T09:21:53.843Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:53.843Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:21:54.869Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:21:54.869Z] Displayed first word 'Pair' again for 1.5 seconds
+[2025-05-28T09:21:56.394Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:56.394Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:21:57.424Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-28T09:21:57.424Z] Displayed second word 'Night' for 1.5 seconds
+[2025-05-28T09:21:58.944Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:21:58.946Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:21:59.994Z] Updated display to 'Night' with text color 'blue'
+[2025-05-28T09:21:59.994Z] Displayed second word 'Night' again for 1.5 seconds
+[2025-05-28T09:22:01.511Z] Starting pair 6: [Right, Son]
+[2025-05-28T09:22:01.516Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:01.517Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:02.539Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:22:02.539Z] Displayed first word 'Right' for 1.5 seconds
+[2025-05-28T09:22:04.061Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:04.062Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:05.078Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:22:05.079Z] Displayed first word 'Right' again for 1.5 seconds
+[2025-05-28T09:22:06.611Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:06.612Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:07.628Z] Updated display to 'Son' with text color 'lightblue'
+[2025-05-28T09:22:07.629Z] Displayed second word 'Son' for 1.5 seconds
+[2025-05-28T09:22:09.156Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:09.157Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:22:10.177Z] Updated display to 'Son' with text color 'blue'
+[2025-05-28T09:22:10.178Z] Displayed second word 'Son' again for 1.5 seconds
+[2025-05-28T09:22:11.689Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:11.691Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:12.715Z] Starting pair 1: [Smart, Up]
+[2025-05-28T09:22:12.720Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:12.720Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:13.743Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-05-28T09:22:13.743Z] Displayed first word 'Smart' for 1.5 seconds
+[2025-05-28T09:22:15.261Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:15.262Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:16.295Z] Updated display to 'Smart' with text color 'blue'
+[2025-05-28T09:22:16.296Z] Displayed first word 'Smart' again for 1.5 seconds
+[2025-05-28T09:22:17.827Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:17.828Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:18.844Z] Updated display to 'Up' with text color 'lightblue'
+[2025-05-28T09:22:18.846Z] Displayed second word 'Up' for 1.5 seconds
+[2025-05-28T09:22:20.377Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:20.378Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:22:21.394Z] Updated display to 'Up' with text color 'blue'
+[2025-05-28T09:22:21.394Z] Displayed second word 'Up' again for 1.5 seconds
+[2025-05-28T09:22:22.907Z] Starting pair 2: [Left, Pair]
+[2025-05-28T09:22:22.919Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:22.920Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:23.977Z] Updated display to 'Left' with text color 'lightblue'
+[2025-05-28T09:22:23.978Z] Displayed first word 'Left' for 1.5 seconds
+[2025-05-28T09:22:25.494Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:25.495Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:26.509Z] Updated display to 'Left' with text color 'blue'
+[2025-05-28T09:22:26.510Z] Displayed first word 'Left' again for 1.5 seconds
+[2025-05-28T09:22:28.044Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:28.045Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:29.092Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:22:29.092Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:22:30.611Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:30.611Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:22:31.620Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:22:31.621Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:22:33.144Z] Starting pair 3: [Clever, Large]
+[2025-05-28T09:22:33.149Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:33.150Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:34.161Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-05-28T09:22:34.162Z] Displayed first word 'Clever' for 1.5 seconds
+[2025-05-28T09:22:35.693Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:35.693Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:36.711Z] Updated display to 'Clever' with text color 'blue'
+[2025-05-28T09:22:36.712Z] Displayed first word 'Clever' again for 1.5 seconds
+[2025-05-28T09:22:38.242Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:38.243Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:39.276Z] Updated display to 'Large' with text color 'lightblue'
+[2025-05-28T09:22:39.277Z] Displayed second word 'Large' for 1.5 seconds
+[2025-05-28T09:22:40.811Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:40.812Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:22:41.844Z] Updated display to 'Large' with text color 'blue'
+[2025-05-28T09:22:41.845Z] Displayed second word 'Large' again for 1.5 seconds
+[2025-05-28T09:22:43.377Z] Starting pair 4: [Couple, Right]
+[2025-05-28T09:22:43.381Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:43.382Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:44.394Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-05-28T09:22:44.395Z] Displayed first word 'Couple' for 1.5 seconds
+[2025-05-28T09:22:45.911Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:45.912Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:46.944Z] Updated display to 'Couple' with text color 'blue'
+[2025-05-28T09:22:46.946Z] Displayed first word 'Couple' again for 1.5 seconds
+[2025-05-28T09:22:48.491Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:48.491Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:49.511Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:22:49.512Z] Displayed second word 'Right' for 1.5 seconds
+[2025-05-28T09:22:51.040Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:51.040Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:22:52.061Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:22:52.061Z] Displayed second word 'Right' again for 1.5 seconds
+[2025-05-28T09:22:53.573Z] Starting pair 5: [Down, See]
+[2025-05-28T09:22:53.579Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:53.580Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:22:54.594Z] Updated display to 'Down' with text color 'lightblue'
+[2025-05-28T09:22:54.594Z] Displayed first word 'Down' for 1.5 seconds
+[2025-05-28T09:22:56.111Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:56.112Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:22:57.144Z] Updated display to 'Down' with text color 'blue'
+[2025-05-28T09:22:57.144Z] Displayed first word 'Down' again for 1.5 seconds
+[2025-05-28T09:22:58.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:22:58.661Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:22:59.677Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:22:59.678Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:23:01.211Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:01.211Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:02.228Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:23:02.229Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:23:03.757Z] Starting pair 6: [Big, Quick]
+[2025-05-28T09:23:03.769Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:03.769Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:04.794Z] Updated display to 'Big' with text color 'lightblue'
+[2025-05-28T09:23:04.794Z] Displayed first word 'Big' for 1.5 seconds
+[2025-05-28T09:23:06.309Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:06.309Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:07.322Z] Updated display to 'Big' with text color 'blue'
+[2025-05-28T09:23:07.322Z] Displayed first word 'Big' again for 1.5 seconds
+[2025-05-28T09:23:08.844Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:08.846Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:23:09.877Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-05-28T09:23:09.878Z] Displayed second word 'Quick' for 1.5 seconds
+[2025-05-28T09:23:11.387Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:11.388Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:12.427Z] Updated display to 'Quick' with text color 'blue'
+[2025-05-28T09:23:12.427Z] Displayed second word 'Quick' again for 1.5 seconds
+[2025-05-28T09:23:13.945Z] Starting pair 7: [Fast, Sea]
+[2025-05-28T09:23:13.953Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:13.954Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:14.971Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-05-28T09:23:14.972Z] Displayed first word 'Fast' for 1.5 seconds
+[2025-05-28T09:23:16.490Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:16.490Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:17.511Z] Updated display to 'Fast' with text color 'blue'
+[2025-05-28T09:23:17.512Z] Displayed first word 'Fast' again for 1.5 seconds
+[2025-05-28T09:23:19.040Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:19.040Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:23:20.061Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:23:20.062Z] Displayed second word 'Sea' for 1.5 seconds
+[2025-05-28T09:23:21.595Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:21.596Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:22.645Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:23:22.646Z] Displayed second word 'Sea' again for 1.5 seconds
+[2025-05-28T09:23:24.191Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:24.192Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:25.228Z] Starting pair 1: [Knight, See]
+[2025-05-28T09:23:25.239Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:25.240Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:26.261Z] Updated display to 'Knight' with text color 'lightblue'
+[2025-05-28T09:23:26.262Z] Displayed first word 'Knight' for 1.5 seconds
+[2025-05-28T09:23:27.784Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:27.785Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:28.809Z] Updated display to 'Knight' with text color 'blue'
+[2025-05-28T09:23:28.810Z] Displayed first word 'Knight' again for 1.5 seconds
+[2025-05-28T09:23:30.345Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:30.346Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:23:31.384Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:23:31.384Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:23:32.893Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:32.894Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:33.914Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:23:33.914Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:23:35.444Z] Starting pair 2: [Write, Flower]
+[2025-05-28T09:23:35.455Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:35.456Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:36.495Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-28T09:23:36.496Z] Displayed first word 'Write' for 1.5 seconds
+[2025-05-28T09:23:38.028Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:38.029Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:39.061Z] Updated display to 'Write' with text color 'blue'
+[2025-05-28T09:23:39.061Z] Displayed first word 'Write' again for 1.5 seconds
+[2025-05-28T09:23:40.577Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:40.578Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:23:41.594Z] Updated display to 'Flower' with text color 'lightblue'
+[2025-05-28T09:23:41.595Z] Displayed second word 'Flower' for 1.5 seconds
+[2025-05-28T09:23:43.111Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:43.111Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:44.122Z] Updated display to 'Flower' with text color 'blue'
+[2025-05-28T09:23:44.123Z] Displayed second word 'Flower' again for 1.5 seconds
+[2025-05-28T09:23:45.661Z] Starting pair 3: [Right, Pair]
+[2025-05-28T09:23:45.672Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:45.673Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:46.709Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:23:46.710Z] Displayed first word 'Right' for 1.5 seconds
+[2025-05-28T09:23:48.245Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:48.246Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:49.278Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:23:49.278Z] Displayed first word 'Right' again for 1.5 seconds
+[2025-05-28T09:23:50.794Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:50.795Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:23:51.811Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:23:51.812Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:23:53.344Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:53.345Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:23:54.361Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:23:54.362Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:23:55.894Z] Starting pair 4: [Flour, Pear]
+[2025-05-28T09:23:55.904Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:55.904Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:23:56.928Z] Updated display to 'Flour' with text color 'lightblue'
+[2025-05-28T09:23:56.928Z] Displayed first word 'Flour' for 1.5 seconds
+[2025-05-28T09:23:58.444Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:23:58.445Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:23:59.463Z] Updated display to 'Flour' with text color 'blue'
+[2025-05-28T09:23:59.464Z] Displayed first word 'Flour' again for 1.5 seconds
+[2025-05-28T09:24:00.994Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:00.995Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:02.011Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-28T09:24:02.011Z] Displayed second word 'Pear' for 1.5 seconds
+[2025-05-28T09:24:03.528Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:03.529Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:04.573Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-28T09:24:04.573Z] Displayed second word 'Pear' again for 1.5 seconds
+[2025-05-28T09:24:06.095Z] Starting pair 5: [Sea, Night]
+[2025-05-28T09:24:06.106Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:06.107Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:07.130Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:24:07.131Z] Displayed first word 'Sea' for 1.5 seconds
+[2025-05-28T09:24:08.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:08.662Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:24:09.706Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:24:09.707Z] Displayed first word 'Sea' again for 1.5 seconds
+[2025-05-28T09:24:11.228Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:11.229Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:12.244Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-28T09:24:12.244Z] Displayed second word 'Night' for 1.5 seconds
+[2025-05-28T09:24:13.758Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:13.759Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:14.778Z] Updated display to 'Night' with text color 'blue'
+[2025-05-28T09:24:14.779Z] Displayed second word 'Night' again for 1.5 seconds
+[2025-05-28T09:24:16.328Z] Starting pair 6: [Son, Sun]
+[2025-05-28T09:24:16.339Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:16.340Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:17.368Z] Updated display to 'Son' with text color 'lightblue'
+[2025-05-28T09:24:17.369Z] Displayed first word 'Son' for 1.5 seconds
+[2025-05-28T09:24:18.878Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:18.879Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:24:19.908Z] Updated display to 'Son' with text color 'blue'
+[2025-05-28T09:24:19.909Z] Displayed first word 'Son' again for 1.5 seconds
+[2025-05-28T09:24:21.444Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:21.445Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:22.461Z] Updated display to 'Sun' with text color 'lightblue'
+[2025-05-28T09:24:22.462Z] Displayed second word 'Sun' for 1.5 seconds
+[2025-05-28T09:24:24.006Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:24.007Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:25.044Z] Updated display to 'Sun' with text color 'blue'
+[2025-05-28T09:24:25.045Z] Displayed second word 'Sun' again for 1.5 seconds
+[2025-05-28T09:24:26.561Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:26.561Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:27.572Z] Starting pair 1: [Clever, Big]
+[2025-05-28T09:24:27.584Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:27.585Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:28.611Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-05-28T09:24:28.612Z] Displayed first word 'Clever' for 1.5 seconds
+[2025-05-28T09:24:30.127Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:30.128Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:24:31.140Z] Updated display to 'Clever' with text color 'blue'
+[2025-05-28T09:24:31.141Z] Displayed first word 'Clever' again for 1.5 seconds
+[2025-05-28T09:24:32.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:32.663Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:33.704Z] Updated display to 'Big' with text color 'lightblue'
+[2025-05-28T09:24:33.705Z] Displayed second word 'Big' for 1.5 seconds
+[2025-05-28T09:24:35.227Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:35.228Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:36.245Z] Updated display to 'Big' with text color 'blue'
+[2025-05-28T09:24:36.246Z] Displayed second word 'Big' again for 1.5 seconds
+[2025-05-28T09:24:37.778Z] Starting pair 2: [Up, Smart]
+[2025-05-28T09:24:37.787Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:37.788Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:38.811Z] Updated display to 'Up' with text color 'lightblue'
+[2025-05-28T09:24:38.812Z] Displayed first word 'Up' for 1.5 seconds
+[2025-05-28T09:24:40.340Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:40.340Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:24:41.361Z] Updated display to 'Up' with text color 'blue'
+[2025-05-28T09:24:41.363Z] Displayed first word 'Up' again for 1.5 seconds
+[2025-05-28T09:24:42.895Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:42.896Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:43.944Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-05-28T09:24:43.945Z] Displayed second word 'Smart' for 1.5 seconds
+[2025-05-28T09:24:45.478Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:45.478Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:46.509Z] Updated display to 'Smart' with text color 'blue'
+[2025-05-28T09:24:46.510Z] Displayed second word 'Smart' again for 1.5 seconds
+[2025-05-28T09:24:48.028Z] Starting pair 3: [Left, Fast]
+[2025-05-28T09:24:48.034Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:48.035Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:49.056Z] Updated display to 'Left' with text color 'lightblue'
+[2025-05-28T09:24:49.057Z] Displayed first word 'Left' for 1.5 seconds
+[2025-05-28T09:24:50.593Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:50.596Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:24:51.627Z] Updated display to 'Left' with text color 'blue'
+[2025-05-28T09:24:51.628Z] Displayed first word 'Left' again for 1.5 seconds
+[2025-05-28T09:24:53.145Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:53.146Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:24:54.178Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-05-28T09:24:54.179Z] Displayed second word 'Fast' for 1.5 seconds
+[2025-05-28T09:24:55.713Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:55.715Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:24:56.744Z] Updated display to 'Fast' with text color 'blue'
+[2025-05-28T09:24:56.745Z] Displayed second word 'Fast' again for 1.5 seconds
+[2025-05-28T09:24:58.261Z] Starting pair 4: [Right, Down]
+[2025-05-28T09:24:58.265Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:24:58.265Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:24:59.278Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:24:59.279Z] Displayed first word 'Right' for 1.5 seconds
+[2025-05-28T09:25:00.811Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:00.812Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:01.828Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:25:01.829Z] Displayed first word 'Right' again for 1.5 seconds
+[2025-05-28T09:25:03.361Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:03.362Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:04.394Z] Updated display to 'Down' with text color 'lightblue'
+[2025-05-28T09:25:04.395Z] Displayed second word 'Down' for 1.5 seconds
+[2025-05-28T09:25:05.935Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:05.936Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:06.961Z] Updated display to 'Down' with text color 'blue'
+[2025-05-28T09:25:06.962Z] Displayed second word 'Down' again for 1.5 seconds
+[2025-05-28T09:25:08.495Z] Starting pair 5: [Large, See]
+[2025-05-28T09:25:08.505Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:08.506Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:09.544Z] Updated display to 'Large' with text color 'lightblue'
+[2025-05-28T09:25:09.545Z] Displayed first word 'Large' for 1.5 seconds
+[2025-05-28T09:25:11.062Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:11.063Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:12.079Z] Updated display to 'Large' with text color 'blue'
+[2025-05-28T09:25:12.080Z] Displayed first word 'Large' again for 1.5 seconds
+[2025-05-28T09:25:13.611Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:13.612Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:14.645Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:25:14.646Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:25:16.178Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:16.178Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:17.210Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:25:17.211Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:25:18.745Z] Starting pair 6: [Couple, Sea]
+[2025-05-28T09:25:18.755Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:18.756Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:19.778Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-05-28T09:25:19.779Z] Displayed first word 'Couple' for 1.5 seconds
+[2025-05-28T09:25:21.311Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:21.312Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:22.345Z] Updated display to 'Couple' with text color 'blue'
+[2025-05-28T09:25:22.346Z] Displayed first word 'Couple' again for 1.5 seconds
+[2025-05-28T09:25:23.892Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:23.893Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:24.928Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:25:24.929Z] Displayed second word 'Sea' for 1.5 seconds
+[2025-05-28T09:25:26.469Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:26.469Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:27.477Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:25:27.478Z] Displayed second word 'Sea' again for 1.5 seconds
+[2025-05-28T09:25:29.010Z] Starting pair 7: [Quick, Pair]
+[2025-05-28T09:25:29.015Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:29.015Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:30.028Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-05-28T09:25:30.029Z] Displayed first word 'Quick' for 1.5 seconds
+[2025-05-28T09:25:31.556Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:31.557Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:32.595Z] Updated display to 'Quick' with text color 'blue'
+[2025-05-28T09:25:32.596Z] Displayed first word 'Quick' again for 1.5 seconds
+[2025-05-28T09:25:34.113Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:34.115Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:35.156Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:25:35.157Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:25:36.691Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:36.691Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:37.728Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:25:37.729Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:25:39.256Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:39.256Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:40.277Z] Starting pair 1: [Pair, Flower]
+[2025-05-28T09:25:40.282Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:40.282Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:41.295Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:25:41.296Z] Displayed first word 'Pair' for 1.5 seconds
+[2025-05-28T09:25:42.827Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:42.828Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:43.845Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:25:43.846Z] Displayed first word 'Pair' again for 1.5 seconds
+[2025-05-28T09:25:45.395Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:45.396Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:46.428Z] Updated display to 'Flower' with text color 'lightblue'
+[2025-05-28T09:25:46.429Z] Displayed second word 'Flower' for 1.5 seconds
+[2025-05-28T09:25:47.961Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:47.963Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:48.980Z] Updated display to 'Flower' with text color 'blue'
+[2025-05-28T09:25:48.981Z] Displayed second word 'Flower' again for 1.5 seconds
+[2025-05-28T09:25:50.505Z] Starting pair 2: [Knight, Flour]
+[2025-05-28T09:25:50.509Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:50.510Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:25:51.525Z] Updated display to 'Knight' with text color 'lightblue'
+[2025-05-28T09:25:51.525Z] Displayed first word 'Knight' for 1.5 seconds
+[2025-05-28T09:25:53.078Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:53.079Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:25:54.108Z] Updated display to 'Knight' with text color 'blue'
+[2025-05-28T09:25:54.109Z] Displayed first word 'Knight' again for 1.5 seconds
+[2025-05-28T09:25:55.644Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:55.645Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:25:56.678Z] Updated display to 'Flour' with text color 'lightblue'
+[2025-05-28T09:25:56.678Z] Displayed second word 'Flour' for 1.5 seconds
+[2025-05-28T09:25:58.194Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:25:58.195Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:25:59.211Z] Updated display to 'Flour' with text color 'blue'
+[2025-05-28T09:25:59.212Z] Displayed second word 'Flour' again for 1.5 seconds
+[2025-05-28T09:26:00.725Z] Starting pair 3: [Sea, Right]
+[2025-05-28T09:26:00.736Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:00.737Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:01.761Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:26:01.763Z] Displayed first word 'Sea' for 1.5 seconds
+[2025-05-28T09:26:03.294Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:03.295Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:04.313Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:26:04.314Z] Displayed first word 'Sea' again for 1.5 seconds
+[2025-05-28T09:26:05.844Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:05.845Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:06.860Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:26:06.861Z] Displayed second word 'Right' for 1.5 seconds
+[2025-05-28T09:26:08.378Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:08.379Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:26:09.394Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:26:09.395Z] Displayed second word 'Right' again for 1.5 seconds
+[2025-05-28T09:26:10.911Z] Starting pair 4: [Son, Night]
+[2025-05-28T09:26:10.917Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:10.917Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:11.938Z] Updated display to 'Son' with text color 'lightblue'
+[2025-05-28T09:26:11.939Z] Displayed first word 'Son' for 1.5 seconds
+[2025-05-28T09:26:13.449Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:13.449Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:14.457Z] Updated display to 'Son' with text color 'blue'
+[2025-05-28T09:26:14.458Z] Displayed first word 'Son' again for 1.5 seconds
+[2025-05-28T09:26:15.975Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:15.976Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:17.007Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-28T09:26:17.008Z] Displayed second word 'Night' for 1.5 seconds
+[2025-05-28T09:26:18.544Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:18.545Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:26:19.561Z] Updated display to 'Night' with text color 'blue'
+[2025-05-28T09:26:19.562Z] Displayed second word 'Night' again for 1.5 seconds
+[2025-05-28T09:26:21.089Z] Starting pair 5: [Pear, Write]
+[2025-05-28T09:26:21.101Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:21.102Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:22.128Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-28T09:26:22.130Z] Displayed first word 'Pear' for 1.5 seconds
+[2025-05-28T09:26:23.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:23.661Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:24.673Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-28T09:26:24.674Z] Displayed first word 'Pear' again for 1.5 seconds
+[2025-05-28T09:26:26.211Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:26.212Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:27.228Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-28T09:26:27.229Z] Displayed second word 'Write' for 1.5 seconds
+[2025-05-28T09:26:28.763Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:28.764Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:26:29.798Z] Updated display to 'Write' with text color 'blue'
+[2025-05-28T09:26:29.799Z] Displayed second word 'Write' again for 1.5 seconds
+[2025-05-28T09:26:31.344Z] Starting pair 6: [Sun, See]
+[2025-05-28T09:26:31.355Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:31.356Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:32.394Z] Updated display to 'Sun' with text color 'lightblue'
+[2025-05-28T09:26:32.395Z] Displayed first word 'Sun' for 1.5 seconds
+[2025-05-28T09:26:33.911Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:33.912Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:34.944Z] Updated display to 'Sun' with text color 'blue'
+[2025-05-28T09:26:34.945Z] Displayed first word 'Sun' again for 1.5 seconds
+[2025-05-28T09:26:36.477Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:36.478Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:37.511Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:26:37.512Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:26:39.028Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:39.029Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:26:40.061Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:26:40.062Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:26:41.594Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:41.595Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:42.611Z] Starting pair 1: [Down, Sea]
+[2025-05-28T09:26:42.623Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:42.624Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:43.644Z] Updated display to 'Down' with text color 'lightblue'
+[2025-05-28T09:26:43.645Z] Displayed first word 'Down' for 1.5 seconds
+[2025-05-28T09:26:45.158Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:45.158Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:46.183Z] Updated display to 'Down' with text color 'blue'
+[2025-05-28T09:26:46.184Z] Displayed first word 'Down' again for 1.5 seconds
+[2025-05-28T09:26:47.725Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:47.725Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:48.745Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:26:48.746Z] Displayed second word 'Sea' for 1.5 seconds
+[2025-05-28T09:26:50.278Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:50.279Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:26:51.311Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:26:51.312Z] Displayed second word 'Sea' again for 1.5 seconds
+[2025-05-28T09:26:52.840Z] Starting pair 2: [Smart, Quick]
+[2025-05-28T09:26:52.855Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:52.856Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:26:53.878Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-05-28T09:26:53.878Z] Displayed first word 'Smart' for 1.5 seconds
+[2025-05-28T09:26:55.395Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:55.396Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:26:56.444Z] Updated display to 'Smart' with text color 'blue'
+[2025-05-28T09:26:56.445Z] Displayed first word 'Smart' again for 1.5 seconds
+[2025-05-28T09:26:57.961Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:26:57.962Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:26:58.977Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-05-28T09:26:58.978Z] Displayed second word 'Quick' for 1.5 seconds
+[2025-05-28T09:27:00.494Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:00.495Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:01.511Z] Updated display to 'Quick' with text color 'blue'
+[2025-05-28T09:27:01.511Z] Displayed second word 'Quick' again for 1.5 seconds
+[2025-05-28T09:27:03.027Z] Starting pair 3: [Couple, Pair]
+[2025-05-28T09:27:03.031Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:03.032Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:04.045Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-05-28T09:27:04.046Z] Displayed first word 'Couple' for 1.5 seconds
+[2025-05-28T09:27:05.578Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:05.578Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:06.587Z] Updated display to 'Couple' with text color 'blue'
+[2025-05-28T09:27:06.587Z] Displayed first word 'Couple' again for 1.5 seconds
+[2025-05-28T09:27:08.094Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:08.095Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:27:09.127Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:27:09.128Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:27:10.644Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:10.645Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:11.661Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:27:11.663Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:27:13.194Z] Starting pair 4: [Clever, Large]
+[2025-05-28T09:27:13.198Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:13.199Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:14.211Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-05-28T09:27:14.212Z] Displayed first word 'Clever' for 1.5 seconds
+[2025-05-28T09:27:15.728Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:15.728Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:16.745Z] Updated display to 'Clever' with text color 'blue'
+[2025-05-28T09:27:16.746Z] Displayed first word 'Clever' again for 1.5 seconds
+[2025-05-28T09:27:18.278Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:18.279Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:27:19.311Z] Updated display to 'Large' with text color 'lightblue'
+[2025-05-28T09:27:19.312Z] Displayed second word 'Large' for 1.5 seconds
+[2025-05-28T09:27:20.845Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:20.846Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:21.861Z] Updated display to 'Large' with text color 'blue'
+[2025-05-28T09:27:21.862Z] Displayed second word 'Large' again for 1.5 seconds
+[2025-05-28T09:27:23.377Z] Starting pair 5: [Fast, Left]
+[2025-05-28T09:27:23.382Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:23.382Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:24.394Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-05-28T09:27:24.395Z] Displayed first word 'Fast' for 1.5 seconds
+[2025-05-28T09:27:25.911Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:25.913Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:26.934Z] Updated display to 'Fast' with text color 'blue'
+[2025-05-28T09:27:26.935Z] Displayed first word 'Fast' again for 1.5 seconds
+[2025-05-28T09:27:28.475Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:28.475Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:27:29.494Z] Updated display to 'Left' with text color 'lightblue'
+[2025-05-28T09:27:29.495Z] Displayed second word 'Left' for 1.5 seconds
+[2025-05-28T09:27:31.011Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:31.013Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:32.045Z] Updated display to 'Left' with text color 'blue'
+[2025-05-28T09:27:32.046Z] Displayed second word 'Left' again for 1.5 seconds
+[2025-05-28T09:27:33.576Z] Starting pair 6: [Right, Up]
+[2025-05-28T09:27:33.588Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:33.589Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:34.628Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:27:34.628Z] Displayed first word 'Right' for 1.5 seconds
+[2025-05-28T09:27:36.145Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:36.146Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:37.178Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:27:37.179Z] Displayed first word 'Right' again for 1.5 seconds
+[2025-05-28T09:27:38.710Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:38.711Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:27:39.730Z] Updated display to 'Up' with text color 'lightblue'
+[2025-05-28T09:27:39.731Z] Displayed second word 'Up' for 1.5 seconds
+[2025-05-28T09:27:41.258Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:41.259Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:42.289Z] Updated display to 'Up' with text color 'blue'
+[2025-05-28T09:27:42.290Z] Displayed second word 'Up' again for 1.5 seconds
+[2025-05-28T09:27:43.828Z] Starting pair 7: [Big, See]
+[2025-05-28T09:27:43.839Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:43.840Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:44.874Z] Updated display to 'Big' with text color 'lightblue'
+[2025-05-28T09:27:44.875Z] Displayed first word 'Big' for 1.5 seconds
+[2025-05-28T09:27:46.411Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:46.411Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:47.423Z] Updated display to 'Big' with text color 'blue'
+[2025-05-28T09:27:47.424Z] Displayed first word 'Big' again for 1.5 seconds
+[2025-05-28T09:27:48.961Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:48.962Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:27:49.995Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:27:49.996Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:27:51.522Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:51.523Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:27:52.561Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:27:52.562Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:27:54.078Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:54.078Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:55.094Z] Starting pair 1: [Right, Sun]
+[2025-05-28T09:27:55.102Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:55.102Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:27:56.124Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:27:56.125Z] Displayed first word 'Right' for 1.5 seconds
+[2025-05-28T09:27:57.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:27:57.662Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:27:58.695Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:27:58.696Z] Displayed first word 'Right' again for 1.5 seconds
+[2025-05-28T09:28:00.227Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:00.228Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:01.244Z] Updated display to 'Sun' with text color 'lightblue'
+[2025-05-28T09:28:01.245Z] Displayed second word 'Sun' for 1.5 seconds
+[2025-05-28T09:28:02.772Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:02.773Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:03.803Z] Updated display to 'Sun' with text color 'blue'
+[2025-05-28T09:28:03.804Z] Displayed second word 'Sun' again for 1.5 seconds
+[2025-05-28T09:28:05.343Z] Starting pair 2: [Night, Write]
+[2025-05-28T09:28:05.356Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:05.357Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:06.385Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-28T09:28:06.385Z] Displayed first word 'Night' for 1.5 seconds
+[2025-05-28T09:28:07.907Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:07.908Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:28:08.945Z] Updated display to 'Night' with text color 'blue'
+[2025-05-28T09:28:08.946Z] Displayed first word 'Night' again for 1.5 seconds
+[2025-05-28T09:28:10.478Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:10.479Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:11.511Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-28T09:28:11.512Z] Displayed second word 'Write' for 1.5 seconds
+[2025-05-28T09:28:13.053Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:13.054Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:14.075Z] Updated display to 'Write' with text color 'blue'
+[2025-05-28T09:28:14.076Z] Displayed second word 'Write' again for 1.5 seconds
+[2025-05-28T09:28:15.611Z] Starting pair 3: [Pair, Knight]
+[2025-05-28T09:28:15.615Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:15.615Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:16.628Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:28:16.629Z] Displayed first word 'Pair' for 1.5 seconds
+[2025-05-28T09:28:18.154Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:18.155Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:28:19.184Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:28:19.185Z] Displayed first word 'Pair' again for 1.5 seconds
+[2025-05-28T09:28:20.694Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:20.695Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:21.711Z] Updated display to 'Knight' with text color 'lightblue'
+[2025-05-28T09:28:21.712Z] Displayed second word 'Knight' for 1.5 seconds
+[2025-05-28T09:28:23.229Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:23.229Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:24.244Z] Updated display to 'Knight' with text color 'blue'
+[2025-05-28T09:28:24.245Z] Displayed second word 'Knight' again for 1.5 seconds
+[2025-05-28T09:28:25.761Z] Starting pair 4: [Pear, Flower]
+[2025-05-28T09:28:25.773Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:25.773Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:26.795Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-28T09:28:26.796Z] Displayed first word 'Pear' for 1.5 seconds
+[2025-05-28T09:28:28.328Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:28.329Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:28:29.361Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-28T09:28:29.361Z] Displayed first word 'Pear' again for 1.5 seconds
+[2025-05-28T09:28:30.873Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:30.874Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:31.883Z] Updated display to 'Flower' with text color 'lightblue'
+[2025-05-28T09:28:31.884Z] Displayed second word 'Flower' for 1.5 seconds
+[2025-05-28T09:28:33.405Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:33.405Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:34.412Z] Updated display to 'Flower' with text color 'blue'
+[2025-05-28T09:28:34.413Z] Displayed second word 'Flower' again for 1.5 seconds
+[2025-05-28T09:28:35.938Z] Starting pair 5: [See, Sea]
+[2025-05-28T09:28:35.948Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:35.949Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:36.978Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:28:36.978Z] Displayed first word 'See' for 1.5 seconds
+[2025-05-28T09:28:38.494Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:38.494Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:28:39.509Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:28:39.509Z] Displayed first word 'See' again for 1.5 seconds
+[2025-05-28T09:28:41.025Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:41.025Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:42.048Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:28:42.049Z] Displayed second word 'Sea' for 1.5 seconds
+[2025-05-28T09:28:43.578Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:43.578Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:44.588Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:28:44.589Z] Displayed second word 'Sea' again for 1.5 seconds
+[2025-05-28T09:28:46.122Z] Starting pair 6: [Son, Flour]
+[2025-05-28T09:28:46.128Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:46.129Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:47.144Z] Updated display to 'Son' with text color 'lightblue'
+[2025-05-28T09:28:47.145Z] Displayed first word 'Son' for 1.5 seconds
+[2025-05-28T09:28:48.661Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:48.662Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:28:49.694Z] Updated display to 'Son' with text color 'blue'
+[2025-05-28T09:28:49.695Z] Displayed first word 'Son' again for 1.5 seconds
+[2025-05-28T09:28:51.207Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:51.208Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:28:52.244Z] Updated display to 'Flour' with text color 'lightblue'
+[2025-05-28T09:28:52.245Z] Displayed second word 'Flour' for 1.5 seconds
+[2025-05-28T09:28:53.759Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:53.760Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:28:54.778Z] Updated display to 'Flour' with text color 'blue'
+[2025-05-28T09:28:54.778Z] Displayed second word 'Flour' again for 1.5 seconds
+[2025-05-28T09:28:56.289Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:56.289Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:57.303Z] Starting pair 1: [Fast, See]
+[2025-05-28T09:28:57.307Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:57.308Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:28:58.328Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-05-28T09:28:58.330Z] Displayed first word 'Fast' for 1.5 seconds
+[2025-05-28T09:28:59.860Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:28:59.862Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:00.894Z] Updated display to 'Fast' with text color 'blue'
+[2025-05-28T09:29:00.895Z] Displayed first word 'Fast' again for 1.5 seconds
+[2025-05-28T09:29:02.411Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:02.412Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:03.429Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:29:03.429Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:29:04.944Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:04.945Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:05.970Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:29:05.970Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:29:07.478Z] Starting pair 2: [Couple, Right]
+[2025-05-28T09:29:07.489Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:07.490Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:08.528Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-05-28T09:29:08.529Z] Displayed first word 'Couple' for 1.5 seconds
+[2025-05-28T09:29:10.058Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:10.058Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:11.078Z] Updated display to 'Couple' with text color 'blue'
+[2025-05-28T09:29:11.078Z] Displayed first word 'Couple' again for 1.5 seconds
+[2025-05-28T09:29:12.595Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:12.596Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:13.645Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:29:13.646Z] Displayed second word 'Right' for 1.5 seconds
+[2025-05-28T09:29:15.194Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:15.195Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:16.204Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:29:16.205Z] Displayed second word 'Right' again for 1.5 seconds
+[2025-05-28T09:29:17.740Z] Starting pair 3: [Sea, Down]
+[2025-05-28T09:29:17.752Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:17.752Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:18.794Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:29:18.795Z] Displayed first word 'Sea' for 1.5 seconds
+[2025-05-28T09:29:20.311Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:20.313Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:21.355Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:29:21.355Z] Displayed first word 'Sea' again for 1.5 seconds
+[2025-05-28T09:29:22.875Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:22.875Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:23.887Z] Updated display to 'Down' with text color 'lightblue'
+[2025-05-28T09:29:23.888Z] Displayed second word 'Down' for 1.5 seconds
+[2025-05-28T09:29:25.425Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:25.425Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:26.447Z] Updated display to 'Down' with text color 'blue'
+[2025-05-28T09:29:26.449Z] Displayed second word 'Down' again for 1.5 seconds
+[2025-05-28T09:29:27.978Z] Starting pair 4: [Smart, Pair]
+[2025-05-28T09:29:27.989Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:27.990Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:29.028Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-05-28T09:29:29.029Z] Displayed first word 'Smart' for 1.5 seconds
+[2025-05-28T09:29:30.561Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:30.562Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:31.578Z] Updated display to 'Smart' with text color 'blue'
+[2025-05-28T09:29:31.578Z] Displayed first word 'Smart' again for 1.5 seconds
+[2025-05-28T09:29:33.094Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:33.095Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:34.128Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:29:34.130Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:29:35.656Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:35.656Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:36.665Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:29:36.666Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:29:38.196Z] Starting pair 5: [Quick, Up]
+[2025-05-28T09:29:38.207Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:38.208Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:39.237Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-05-28T09:29:39.238Z] Displayed first word 'Quick' for 1.5 seconds
+[2025-05-28T09:29:40.759Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:40.759Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:41.778Z] Updated display to 'Quick' with text color 'blue'
+[2025-05-28T09:29:41.779Z] Displayed first word 'Quick' again for 1.5 seconds
+[2025-05-28T09:29:43.328Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:43.328Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:44.343Z] Updated display to 'Up' with text color 'lightblue'
+[2025-05-28T09:29:44.344Z] Displayed second word 'Up' for 1.5 seconds
+[2025-05-28T09:29:45.878Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:45.879Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:46.906Z] Updated display to 'Up' with text color 'blue'
+[2025-05-28T09:29:46.906Z] Displayed second word 'Up' again for 1.5 seconds
+[2025-05-28T09:29:48.422Z] Starting pair 6: [Large, Left]
+[2025-05-28T09:29:48.427Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:48.427Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:49.445Z] Updated display to 'Large' with text color 'lightblue'
+[2025-05-28T09:29:49.446Z] Displayed first word 'Large' for 1.5 seconds
+[2025-05-28T09:29:50.974Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:50.975Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:29:52.001Z] Updated display to 'Large' with text color 'blue'
+[2025-05-28T09:29:52.002Z] Displayed first word 'Large' again for 1.5 seconds
+[2025-05-28T09:29:53.511Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:53.511Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:29:54.522Z] Updated display to 'Left' with text color 'lightblue'
+[2025-05-28T09:29:54.522Z] Displayed second word 'Left' for 1.5 seconds
+[2025-05-28T09:29:56.061Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:56.062Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:29:57.077Z] Updated display to 'Left' with text color 'blue'
+[2025-05-28T09:29:57.078Z] Displayed second word 'Left' again for 1.5 seconds
+[2025-05-28T09:29:58.594Z] Starting pair 7: [Big, Clever]
+[2025-05-28T09:29:58.602Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:29:58.603Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:29:59.626Z] Updated display to 'Big' with text color 'lightblue'
+[2025-05-28T09:29:59.626Z] Displayed first word 'Big' for 1.5 seconds
+[2025-05-28T09:30:01.135Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:01.135Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:02.178Z] Updated display to 'Big' with text color 'blue'
+[2025-05-28T09:30:02.178Z] Displayed first word 'Big' again for 1.5 seconds
+[2025-05-28T09:30:03.695Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:03.696Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:04.728Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-05-28T09:30:04.729Z] Displayed second word 'Clever' for 1.5 seconds
+[2025-05-28T09:30:06.261Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:06.263Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:07.299Z] Updated display to 'Clever' with text color 'blue'
+[2025-05-28T09:30:07.300Z] Displayed second word 'Clever' again for 1.5 seconds
+[2025-05-28T09:30:08.822Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:08.822Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:09.844Z] Starting pair 1: [Son, Right]
+[2025-05-28T09:30:09.851Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:09.851Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:10.860Z] Updated display to 'Son' with text color 'lightblue'
+[2025-05-28T09:30:10.861Z] Displayed first word 'Son' for 1.5 seconds
+[2025-05-28T09:30:12.387Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:12.388Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:13.423Z] Updated display to 'Son' with text color 'blue'
+[2025-05-28T09:30:13.424Z] Displayed first word 'Son' again for 1.5 seconds
+[2025-05-28T09:30:14.961Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:14.961Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:15.972Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:30:15.972Z] Displayed second word 'Right' for 1.5 seconds
+[2025-05-28T09:30:17.512Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:17.513Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:18.539Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:30:18.540Z] Displayed second word 'Right' again for 1.5 seconds
+[2025-05-28T09:30:20.048Z] Starting pair 2: [Sun, Night]
+[2025-05-28T09:30:20.059Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:20.060Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:21.093Z] Updated display to 'Sun' with text color 'lightblue'
+[2025-05-28T09:30:21.095Z] Displayed first word 'Sun' for 1.5 seconds
+[2025-05-28T09:30:22.628Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:22.629Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:23.661Z] Updated display to 'Sun' with text color 'blue'
+[2025-05-28T09:30:23.662Z] Displayed first word 'Sun' again for 1.5 seconds
+[2025-05-28T09:30:25.175Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:25.176Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:26.211Z] Updated display to 'Night' with text color 'lightblue'
+[2025-05-28T09:30:26.211Z] Displayed second word 'Night' for 1.5 seconds
+[2025-05-28T09:30:27.725Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:27.726Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:28.756Z] Updated display to 'Night' with text color 'blue'
+[2025-05-28T09:30:28.757Z] Displayed second word 'Night' again for 1.5 seconds
+[2025-05-28T09:30:30.295Z] Starting pair 3: [Write, Flower]
+[2025-05-28T09:30:30.305Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:30.305Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:31.328Z] Updated display to 'Write' with text color 'lightblue'
+[2025-05-28T09:30:31.330Z] Displayed first word 'Write' for 1.5 seconds
+[2025-05-28T09:30:32.861Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:32.862Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:33.890Z] Updated display to 'Write' with text color 'blue'
+[2025-05-28T09:30:33.891Z] Displayed first word 'Write' again for 1.5 seconds
+[2025-05-28T09:30:35.411Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:35.413Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:36.445Z] Updated display to 'Flower' with text color 'lightblue'
+[2025-05-28T09:30:36.446Z] Displayed second word 'Flower' for 1.5 seconds
+[2025-05-28T09:30:37.994Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:37.995Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:39.018Z] Updated display to 'Flower' with text color 'blue'
+[2025-05-28T09:30:39.019Z] Displayed second word 'Flower' again for 1.5 seconds
+[2025-05-28T09:30:40.545Z] Starting pair 4: [Knight, Flour]
+[2025-05-28T09:30:40.559Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:40.560Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:41.578Z] Updated display to 'Knight' with text color 'lightblue'
+[2025-05-28T09:30:41.579Z] Displayed first word 'Knight' for 1.5 seconds
+[2025-05-28T09:30:43.112Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:43.113Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:44.145Z] Updated display to 'Knight' with text color 'blue'
+[2025-05-28T09:30:44.145Z] Displayed first word 'Knight' again for 1.5 seconds
+[2025-05-28T09:30:45.673Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:45.674Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:46.697Z] Updated display to 'Flour' with text color 'lightblue'
+[2025-05-28T09:30:46.698Z] Displayed second word 'Flour' for 1.5 seconds
+[2025-05-28T09:30:48.217Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:48.218Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:49.256Z] Updated display to 'Flour' with text color 'blue'
+[2025-05-28T09:30:49.256Z] Displayed second word 'Flour' again for 1.5 seconds
+[2025-05-28T09:30:50.795Z] Starting pair 5: [Pear, Pair]
+[2025-05-28T09:30:50.806Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:50.807Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:30:51.845Z] Updated display to 'Pear' with text color 'lightblue'
+[2025-05-28T09:30:51.845Z] Displayed first word 'Pear' for 1.5 seconds
+[2025-05-28T09:30:53.364Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:53.365Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:30:54.395Z] Updated display to 'Pear' with text color 'blue'
+[2025-05-28T09:30:54.395Z] Displayed first word 'Pear' again for 1.5 seconds
+[2025-05-28T09:30:55.922Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:55.923Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:30:56.945Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:30:56.946Z] Displayed second word 'Pair' for 1.5 seconds
+[2025-05-28T09:30:58.478Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:30:58.479Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:30:59.511Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:30:59.511Z] Displayed second word 'Pair' again for 1.5 seconds
+[2025-05-28T09:31:01.028Z] Starting pair 6: [Sea, See]
+[2025-05-28T09:31:01.033Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:01.033Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:02.046Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:31:02.047Z] Displayed first word 'Sea' for 1.5 seconds
+[2025-05-28T09:31:03.578Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:03.579Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:04.606Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:31:04.607Z] Displayed first word 'Sea' again for 1.5 seconds
+[2025-05-28T09:31:06.141Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:06.142Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:07.162Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:31:07.163Z] Displayed second word 'See' for 1.5 seconds
+[2025-05-28T09:31:08.712Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:08.713Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:31:09.754Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:31:09.755Z] Displayed second word 'See' again for 1.5 seconds
+[2025-05-28T09:31:11.292Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:11.293Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:12.311Z] Starting pair 1: [Large, Couple]
+[2025-05-28T09:31:12.316Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:12.317Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:13.326Z] Updated display to 'Large' with text color 'lightblue'
+[2025-05-28T09:31:13.327Z] Displayed first word 'Large' for 1.5 seconds
+[2025-05-28T09:31:14.862Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:14.863Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:15.895Z] Updated display to 'Large' with text color 'blue'
+[2025-05-28T09:31:15.897Z] Displayed first word 'Large' again for 1.5 seconds
+[2025-05-28T09:31:17.426Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:17.427Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:18.461Z] Updated display to 'Couple' with text color 'lightblue'
+[2025-05-28T09:31:18.462Z] Displayed second word 'Couple' for 1.5 seconds
+[2025-05-28T09:31:19.995Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:19.995Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:31:21.026Z] Updated display to 'Couple' with text color 'blue'
+[2025-05-28T09:31:21.027Z] Displayed second word 'Couple' again for 1.5 seconds
+[2025-05-28T09:31:22.545Z] Starting pair 2: [Sea, Big]
+[2025-05-28T09:31:22.556Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:22.557Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:23.592Z] Updated display to 'Sea' with text color 'lightblue'
+[2025-05-28T09:31:23.593Z] Displayed first word 'Sea' for 1.5 seconds
+[2025-05-28T09:31:25.109Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:25.110Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:26.128Z] Updated display to 'Sea' with text color 'blue'
+[2025-05-28T09:31:26.129Z] Displayed first word 'Sea' again for 1.5 seconds
+[2025-05-28T09:31:27.654Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:27.655Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:28.695Z] Updated display to 'Big' with text color 'lightblue'
+[2025-05-28T09:31:28.696Z] Displayed second word 'Big' for 1.5 seconds
+[2025-05-28T09:31:30.223Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:30.223Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:31:31.245Z] Updated display to 'Big' with text color 'blue'
+[2025-05-28T09:31:31.246Z] Displayed second word 'Big' again for 1.5 seconds
+[2025-05-28T09:31:32.796Z] Starting pair 3: [Left, Clever]
+[2025-05-28T09:31:32.807Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:32.808Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:33.840Z] Updated display to 'Left' with text color 'lightblue'
+[2025-05-28T09:31:33.840Z] Displayed first word 'Left' for 1.5 seconds
+[2025-05-28T09:31:35.361Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:35.362Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:36.378Z] Updated display to 'Left' with text color 'blue'
+[2025-05-28T09:31:36.379Z] Displayed first word 'Left' again for 1.5 seconds
+[2025-05-28T09:31:37.895Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:37.896Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:38.928Z] Updated display to 'Clever' with text color 'lightblue'
+[2025-05-28T09:31:38.928Z] Displayed second word 'Clever' for 1.5 seconds
+[2025-05-28T09:31:40.445Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:40.446Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:31:41.474Z] Updated display to 'Clever' with text color 'blue'
+[2025-05-28T09:31:41.474Z] Displayed second word 'Clever' again for 1.5 seconds
+[2025-05-28T09:31:42.983Z] Starting pair 4: [Smart, Up]
+[2025-05-28T09:31:42.991Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:42.992Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:44.026Z] Updated display to 'Smart' with text color 'lightblue'
+[2025-05-28T09:31:44.026Z] Displayed first word 'Smart' for 1.5 seconds
+[2025-05-28T09:31:45.543Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:45.544Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:46.554Z] Updated display to 'Smart' with text color 'blue'
+[2025-05-28T09:31:46.555Z] Displayed first word 'Smart' again for 1.5 seconds
+[2025-05-28T09:31:48.090Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:48.090Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:49.112Z] Updated display to 'Up' with text color 'lightblue'
+[2025-05-28T09:31:49.113Z] Displayed second word 'Up' for 1.5 seconds
+[2025-05-28T09:31:50.644Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:50.645Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:31:51.662Z] Updated display to 'Up' with text color 'blue'
+[2025-05-28T09:31:51.663Z] Displayed second word 'Up' again for 1.5 seconds
+[2025-05-28T09:31:53.195Z] Starting pair 5: [Pair, Quick]
+[2025-05-28T09:31:53.206Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:53.207Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:31:54.242Z] Updated display to 'Pair' with text color 'lightblue'
+[2025-05-28T09:31:54.243Z] Displayed first word 'Pair' for 1.5 seconds
+[2025-05-28T09:31:55.774Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:55.775Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:31:56.809Z] Updated display to 'Pair' with text color 'blue'
+[2025-05-28T09:31:56.810Z] Displayed first word 'Pair' again for 1.5 seconds
+[2025-05-28T09:31:58.328Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:31:58.329Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:31:59.349Z] Updated display to 'Quick' with text color 'lightblue'
+[2025-05-28T09:31:59.349Z] Displayed second word 'Quick' for 1.5 seconds
+[2025-05-28T09:32:00.861Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:00.862Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:32:01.880Z] Updated display to 'Quick' with text color 'blue'
+[2025-05-28T09:32:01.881Z] Displayed second word 'Quick' again for 1.5 seconds
+[2025-05-28T09:32:03.414Z] Starting pair 6: [See, Right]
+[2025-05-28T09:32:03.421Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:03.421Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:32:04.445Z] Updated display to 'See' with text color 'lightblue'
+[2025-05-28T09:32:04.445Z] Displayed first word 'See' for 1.5 seconds
+[2025-05-28T09:32:05.956Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:05.956Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:32:06.966Z] Updated display to 'See' with text color 'blue'
+[2025-05-28T09:32:06.966Z] Displayed first word 'See' again for 1.5 seconds
+[2025-05-28T09:32:08.493Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:08.493Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:32:09.528Z] Updated display to 'Right' with text color 'lightblue'
+[2025-05-28T09:32:09.528Z] Displayed second word 'Right' for 1.5 seconds
+[2025-05-28T09:32:11.045Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:11.046Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:32:12.078Z] Updated display to 'Right' with text color 'blue'
+[2025-05-28T09:32:12.079Z] Displayed second word 'Right' again for 1.5 seconds
+[2025-05-28T09:32:13.611Z] Starting pair 7: [Down, Fast]
+[2025-05-28T09:32:13.621Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:13.621Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:32:14.655Z] Updated display to 'Down' with text color 'lightblue'
+[2025-05-28T09:32:14.656Z] Displayed first word 'Down' for 1.5 seconds
+[2025-05-28T09:32:16.173Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:16.173Z] Displayed cross ('+') for 1 seconds (repeating first word)
+[2025-05-28T09:32:17.212Z] Updated display to 'Down' with text color 'blue'
+[2025-05-28T09:32:17.213Z] Displayed first word 'Down' again for 1.5 seconds
+[2025-05-28T09:32:18.745Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:18.746Z] Displayed cross ('+') for 1 seconds (transitioning to second word)
+[2025-05-28T09:32:19.778Z] Updated display to 'Fast' with text color 'lightblue'
+[2025-05-28T09:32:19.778Z] Displayed second word 'Fast' for 1.5 seconds
+[2025-05-28T09:32:21.291Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:21.291Z] Displayed cross ('+') for 1 seconds (repeating second word)
+[2025-05-28T09:32:22.302Z] Updated display to 'Fast' with text color 'blue'
+[2025-05-28T09:32:22.303Z] Displayed second word 'Fast' again for 1.5 seconds
+[2025-05-28T09:32:23.828Z] Updated display to '+' with text color 'black'
+[2025-05-28T09:32:23.829Z] Displayed cross ('+') for 1 seconds (before first word)
+[2025-05-28T09:32:24.861Z] Recording display closed
+[2025-05-28 12:21:08.271] Attempting to open connection to headset...
+[2025-05-28 12:21:10.373] Session created successfully. Headset found!
+[2025-05-28 12:21:10.374] Creating record: Mohammad Shahwan1748424068255
+[2025-05-28 12:21:10.401] Record created with ID: f1ba3bf4-d3ad-4cd8-a220-6e0d3a2a1d88
+[2025-05-28 12:32:25.872] Stopping record...
+[2025-05-28 12:32:25.916] Recording stopped.
+[2025-05-28 12:32:25.916] Post-processing in progress...
+[2025-05-28 12:32:29.115] Post-processing completed for record ID: f1ba3bf4-d3ad-4cd8-a220-6e0d3a2a1d88
+[2025-05-28 12:32:29.115] Exporting record to folder: C:/Users/bess/Desktop/imagined-speech/data
+[2025-05-28 12:32:32.671] Data export completed successfully.
