@@ -1,0 +1,3 @@
+removing reference
+removing bad epochs
+fix ica handling
