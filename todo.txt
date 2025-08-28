@@ -1,3 +1,7 @@
 removing reference
 removing bad epochs
-fix ica handling
+
+
+Plot standard error
+
+Plot the four words, alone, then on top of each other, covert, overt, fixation (only when one at a time), when all the same plot, then drop fixation.
