@@ -5,3 +5,16 @@ removing bad epochs
 Plot standard error
 
 Plot the four words, alone, then on top of each other, covert, overt, fixation (only when one at a time), when all the same plot, then drop fixation.
+
+
+
+2d input, 1d convolution
+Different kernel sizes and whatnot
+pca 
+conv only
+
+
+Document all the things tried
+separate notebooks
+create simple notebook with data loading and model running
+try a simple model
