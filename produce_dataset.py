@@ -148,7 +148,21 @@ def extract_word_events(logs, identifier, words=('up', 'down', 'left', 'right'))
         i += 1
     return word_events
 
-def extract_gamma(raw, word_events, start_timestamp, tmin=-0.4, tmax=0.8, sfreq=128, second_band=None, gamma=True, covert='covert'):
+def extract_gamma(raw, word_events, start_timestamp, tmin=-0.4, tmax=0.8, sfreq=128, second_band=None, gamma=True, covert='covert', all_labels=False):
+    if all_labels:
+        label_map = {'son': 0, 'pear': 1, 'sun': 2, 'sea': 3, 'flower': 4, 'pair': 5, 'see': 6, 'night': 7,
+                'right': 8, 'knight': 9, 'write': 10, 'flour': 11,
+                'down': 12, 'smart': 13, 'big': 14,
+                'left': 15, 'couple': 16, 'quick': 17,
+                'up': 18, 'clever': 19}
+        word_list = ["son", "pear", "sun", "sea", "flower", "pair", "see", "night",
+                        "right", "knight", "write", "flour",
+                        "down", "smart", "big",
+                        "left", "couple", "quick",
+                        "up", "clever"]
+    else:
+        label_map = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
+        word_list = ["up", "down", "left", "right"]
     bands = {
         'delta': (0.5, 4),
         'theta': (4, 8),
@@ -164,12 +178,7 @@ def extract_gamma(raw, word_events, start_timestamp, tmin=-0.4, tmax=0.8, sfreq=
         filtered_raw_second = raw.copy().filter(bands[second_band][0], bands[second_band][1], fir_design='firwin')
     X = []
     y = []
-    
-    label_map = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
-    # label_map = {'up': 0, 'down': 0, 'left': 1, 'right': 1}
-    # print(raw.info["ch_names"], filtered_raw.info["ch_names"], raw._data.shape, filtered_raw._data.shape, word_events)
-    for word in ['up', 'down', 'left', 'right']:
-        # for event_type in ['covert', 'overt']:
+    for word in word_list:
         for event_type in [covert]:
             event_times = word_events[word][event_type]
             for t in event_times:
@@ -190,7 +199,18 @@ def extract_gamma(raw, word_events, start_timestamp, tmin=-0.4, tmax=0.8, sfreq=
     return np.array(X), np.array(y)
 
 
-def main(pca, type, covert):
+def main(pca, type, covert, all_labels):
+    all_labels_str = 'all_labels' if all_labels else ''
+    
+    if all_labels:
+        word_list = ["son", "pear", "sun", "sea", "flower", "pair", "see", "night",
+                        "right", "knight", "write", "flour",
+                        "down", "smart", "big",
+                        "left", "couple", "quick",
+                        "up", "clever"]
+    else:
+        word_list = ["up", "down", "left", "right"]
+
     if type == 'gamma':
         if pca:
             ch_names = [name.split('.')[1] for name in processed_l[0]["processed"].columns.tolist()]
@@ -201,9 +221,9 @@ def main(pca, type, covert):
         else:
             raw = processed_l[0]["raw"]
         if covert:
-            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"])
+            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], all_labels=all_labels)
         else:
-            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], covert='overt')
+            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], covert='overt', all_labels=all_labels)
         if X.shape[2] > 200:
             X = X[:, :, ::2]
         for i, item in enumerate(processed_l[1:]):
@@ -215,12 +235,12 @@ def main(pca, type, covert):
                 raw.set_montage(mont, match_case=False, on_missing='warn')
             else:
                 raw = item["raw"]
-            word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right'])
+            word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=word_list)
             sfreq = item["sfreq"]
             if covert:
-                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, covert='covert')
+                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, covert='covert', all_labels=all_labels)
             else:
-                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, covert='overt')
+                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, covert='overt', all_labels=all_labels)
             if X_item.shape[2] > 200:
                 X_item = X_item[:, :, ::2]
             X = np.concatenate((X, X_item), axis=0)
@@ -237,9 +257,9 @@ def main(pca, type, covert):
             else:
                 raw = processed_l[0]["raw"]
             if covert:
-                X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], second_band=band)
+                X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], second_band=band, all_labels=all_labels)
             else:
-                X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], second_band=band, covert='overt')
+                X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], second_band=band, covert='overt', all_labels=all_labels)
             if X.shape[2] > 200:
                 X = X[:, :, ::2]
             for i, item in enumerate(processed_l[1:]):
@@ -252,17 +272,17 @@ def main(pca, type, covert):
                 else:
                     raw = item["raw"]
 
-                word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right'])
+                word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=word_list)
                 sfreq = item["sfreq"]
                 if covert:
-                    X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, second_band=band, covert='covert')
+                    X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, second_band=band, covert='covert', all_labels=all_labels)
                 else:
-                    X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, second_band=band, covert='overt')
+                    X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, second_band=band, covert='overt', all_labels=all_labels)
                 if X_item.shape[2] > 200:
                     X_item = X_item[:, :, ::2]
                 X = np.concatenate((X, X_item), axis=0)
                 y = np.concatenate((y, y_item), axis=0)
-            np.savez_compressed(f"gamma_{band}_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}.npz", X=X, y=y)
+            np.savez_compressed(f"gamma_{band}_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}_{all_labels_str}.npz", X=X, y=y)
 
     elif type == 'unfiltered':
         if pca:
@@ -274,9 +294,9 @@ def main(pca, type, covert):
         else:
             raw = processed_l[0]["raw"]
         if covert:
-            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], gamma=False)
+            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], gamma=False, all_labels=all_labels)
         else:
-            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right']), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], gamma=False, covert='overt')
+            X, y = extract_gamma(raw, extract_word_events(logs, identifier=files_256[0].split("_")[0][files_256[0].split("_")[0].find("1"):], words=word_list), start_timestamp=processed_l[0]["start_timestamp"], sfreq=processed_l[0]["sfreq"], gamma=False, covert='overt', all_labels=all_labels)
         if X.shape[2] > 200:
             X = X[:, :, ::2]
         for i, item in enumerate(processed_l[1:]):
@@ -288,12 +308,12 @@ def main(pca, type, covert):
                 raw.set_montage(mont, match_case=False, on_missing='warn')
             else:
                 raw = item["raw"]
-            word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=['up', 'down', 'left', 'right'])
+            word_events = extract_word_events(logs, identifier=files_256[i+1].split("_")[0][files_256[i+1].split("_")[0].find("1"):], words=word_list)
             sfreq = item["sfreq"]
             if covert:
-                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, gamma=False)
+                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, gamma=False, all_labels=all_labels)
             else:
-                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, gamma=False, covert='overt')
+                X_item, y_item = extract_gamma(raw, word_events, start_timestamp=item["start_timestamp"], sfreq=sfreq, gamma=False, covert='overt', all_labels=all_labels)
             if X_item.shape[2] > 200:
                 X_item = X_item[:, :, ::2]
             X = np.concatenate((X, X_item), axis=0)
@@ -303,21 +323,21 @@ def main(pca, type, covert):
     else:
         raise ValueError("Invalid type specified. Choose from 'gamma', 'dual_band', or 'unfiltered'.")
     
-
     if type == 'gamma':
-        np.savez_compressed(f"gamma_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}.npz", X=X, y=y)
+        np.savez_compressed(f"gamma_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}_{all_labels_str}.npz", X=X, y=y)
     elif type == 'dual_band':
         pass 
     elif type == 'unfiltered':
-        np.savez_compressed(f"unfiltered_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}.npz", X=X, y=y)       
+        np.savez_compressed(f"unfiltered_{'covert' if covert else 'overt'}_{'pca' if pca else 'no_pca'}_{all_labels_str}.npz", X=X, y=y)       
         
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Produce EEG dataset with specified preprocessing.")
     parser.add_argument('--pca', action='store_true', help='Use PCA processed data, default is raw data')
     parser.add_argument('--type', type=str, choices=['gamma', 'dual_band', 'unfiltered'], required=True, help='Type of preprocessing to apply')
     parser.add_argument('--overt', action='store_true', help='Extract overt speech events (default is covert)')
+    parser.add_argument('--all_labels', action='store_true', help='Use all labels for extraction (not just up, down, left, right)')
 
     args = parser.parse_args()
 
-    main(pca=args.pca, type=args.type, covert=not args.overt)
+    main(pca=args.pca, type=args.type, covert=not args.overt, all_labels=args.all_labels)
     

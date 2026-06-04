@@ -18,3 +18,10 @@ Document all the things tried
 separate notebooks
 create simple notebook with data loading and model running
 try a simple model
+
+
+gpf aggregated -> mfcc decomposition before epoching -> epoching -> 2d convolution 
+
+train a single classifier for every label (label or not label), then do some sort of a voting classifier
+
+Experiment with transformers
