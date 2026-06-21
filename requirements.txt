@@ -1,0 +1,24 @@
+# Core scientific / EEG stack (preprocessing + dataset generation)
+numpy
+pandas
+scipy
+mne
+scikit-learn
+matplotlib
+
+# Acquisition server
+fastapi
+uvicorn
+pydantic
+
+# Modelling / experiment notebooks
+torch
+xgboost
+catboost
+PyWavelets        # imported as `pywt`
+plotly
+seaborn
+
+# Optional — used only by some feature-engineering cells in notebook 05
+# nitime
+# spectrum

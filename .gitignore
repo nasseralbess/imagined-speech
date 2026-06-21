@@ -1,2 +1,27 @@
-node_modules
-subjects
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- Secrets / credentials ---
+.env
+# Emotiv client secret lives here; commit config.example.js instead
+acquisition/js-cortex/config.js
+
+# --- Node ---
+node_modules/
+
+# --- OS / editor cruft ---
+.DS_Store
+
+# --- Legacy / scratch ---
+subjects/
+
+# NOTE: large data artifacts under data/processed/ (*.npz, *.pkl) and raw
+# recordings under data/raw/ are intentionally tracked (the pkl via git-lfs).
+# If you fork this repo without the data, uncomment the lines below.
+# data/raw/
+# data/processed/
