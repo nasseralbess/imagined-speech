@@ -9,28 +9,20 @@ import {
   Dialog,
   DialogContent,
   CircularProgress,
-  Alert
+  Alert,
+  MenuItem
 } from '@mui/material';
+import { EXPERIMENTS, EXPERIMENT_IDS, DEFAULT_EXPERIMENT } from './experiments';
 
-// A helper function to shuffle an array using the Fisher-Yates algorithm
-const shuffleArray = (array) => {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-};
-
-const num_trials = 5;
-
-// ... [other helper functions remain unchanged]
+const DEFAULT_NUM_TRIALS = 5;
 
 function App() {
-  // Form state and UI state remain unchanged.
+  // Form state and UI state.
   const [cursorDuration, setCursorDuration] = useState(0.25); // seconds
   const [wordDuration, setWordDuration] = useState(1);        // seconds
   const [subjectName, setSubjectName] = useState('Test1');
+  const [experimentId, setExperimentId] = useState(DEFAULT_EXPERIMENT);
+  const [numTrials, setNumTrials] = useState(DEFAULT_NUM_TRIALS);
   const [statusMessage, setStatusMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -38,6 +30,8 @@ function App() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [displayText, setDisplayText] = useState('');
   const [textColor, setTextColor] = useState("black");
+
+  const experiment = EXPERIMENTS[experimentId];
 
   // Helper delay function
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -87,10 +81,10 @@ function App() {
   };
 
   // Start recording on the backend (we still send a dummy duration value)
-  const startRecording = async (subjectName, runID, randomizedPairs) => {
+  const startRecording = async (subjectName, runID, trials) => {
     const commonEventTime = new Date().toISOString();
     await logEvent(`Common event: Recording initiated at ${commonEventTime}`, subjectName, runID);
-      
+
     try {
       const response = await fetch('http://127.0.0.1:8000/start_recording', {
         method: 'POST',
@@ -100,7 +94,10 @@ function App() {
           duration: 0,
           subject_name: subjectName,
           run_id: runID,
-          sequence: randomizedPairs,
+          // One inner list per trial, in the exact order the words will be shown.
+          sequence: trials.map((trial) => trial.words),
+          experiment: experimentId,
+          num_trials: trials.length,
           cursor_delay: parseFloat(cursorDuration),
           word_delay: parseFloat(wordDuration),
           common_event_time: commonEventTime
@@ -120,7 +117,7 @@ function App() {
     }
   };
 
-  // New function to stop recording on the backend.
+  // Stop recording on the backend.
   const stopRecording = async (runID, subjectName) => {
     try {
       const response = await fetch('http://127.0.0.1:8000/stop_recording', {
@@ -134,49 +131,64 @@ function App() {
       console.error("Error stopping recording:", error);
     }
   };
-  // New function to run a test sequence (no backend calls)
+
+  // Present one stimulus word: fixation -> word (lightblue = overt) ->
+  // fixation -> word (blue = covert). preprocessing/produce_dataset.py reads the
+  // colour out of the log to decide overt vs covert, so these two colours and
+  // the log wording around them must not change.
+  const presentWord = async (item, subjectName, runID) => {
+    const { word, label, crossNotes } = item;
+
+    updateDisplay("+", "black", subjectName, runID);
+    await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds ${crossNotes.first}`, subjectName, runID);
+    await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+    updateDisplay(word, "lightblue", subjectName, runID);
+    await logEvent(`Displayed ${label} '${word}' for ${wordDuration} seconds`, subjectName, runID);
+    await preciseDelay(parseFloat(wordDuration) * 1000);
+
+    updateDisplay("+", "black", subjectName, runID);
+    await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds ${crossNotes.repeat}`, subjectName, runID);
+    await preciseDelay(parseFloat(cursorDuration) * 1000);
+
+    updateDisplay(word, "blue", subjectName, runID);
+    await logEvent(`Displayed ${label} '${word}' again for ${wordDuration} seconds`, subjectName, runID);
+    await preciseDelay(parseFloat(wordDuration) * 1000);
+  };
+
+  // A bare fixation cross with no word after it (legacy block separator).
+  const presentCross = async (item, subjectName, runID) => {
+    updateDisplay("+", "black", subjectName, runID);
+    await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds ${item.note}`, subjectName, runID);
+    await preciseDelay(parseFloat(cursorDuration) * 1000);
+  };
+
+  // Run a test sequence of the selected experiment (no backend calls, one trial).
   const runTestSequence = async () => {
     setLoading(true);
-    setStatusMessage("Test run in progress...");
+    setStatusMessage(`Test run in progress (${experiment.label})...`);
     setDialogOpen(true);
 
-    const testWordPairs = [
-      "Flower", "Flour",
-      "Knight", "Night",
-      "Sun", "Son",
-      "Right", "Write",
-      "Pair", "Pear",
-      "Sea", "See"
-    ];
+    const [trial] = experiment.buildTrials({ numTrials: 1 });
+    console.log("Test trial:", trial.words);
 
-    for (let i = 0; i < testWordPairs.length; i += 2) {
-      const firstWord = testWordPairs[i];
-      const secondWord = testWordPairs[i + 1];
+    for (const item of trial.items) {
+      if (item.kind === 'cross') {
+        setDisplayText("+"); setTextColor("black");
+        await preciseDelay(parseFloat(cursorDuration) * 1000);
+        continue;
+      }
 
-      // First word block
       setDisplayText("+"); setTextColor("black");
       await preciseDelay(parseFloat(cursorDuration) * 1000);
 
-      setDisplayText(firstWord); setTextColor("lightblue");
+      setDisplayText(item.word); setTextColor("lightblue");
       await preciseDelay(parseFloat(wordDuration) * 1000);
 
       setDisplayText("+"); setTextColor("black");
       await preciseDelay(parseFloat(cursorDuration) * 1000);
 
-      setDisplayText(firstWord); setTextColor("blue");
-      await preciseDelay(parseFloat(wordDuration) * 1000);
-
-      // Second word block
-      setDisplayText("+"); setTextColor("black");
-      await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-      setDisplayText(secondWord); setTextColor("lightblue");
-      await preciseDelay(parseFloat(wordDuration) * 1000);
-
-      setDisplayText("+"); setTextColor("black");
-      await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-      setDisplayText(secondWord); setTextColor("blue");
+      setDisplayText(item.word); setTextColor("blue");
       await preciseDelay(parseFloat(wordDuration) * 1000);
     }
 
@@ -185,146 +197,43 @@ function App() {
     setLoading(false);
   };
 
-  // Main UI sequence: process word pairs sequentially.
+  // Main UI sequence: build the trials for the selected experiment, then walk them.
   const runRecordingSequence = async () => {
     // Use timestamp as unique run ID.
     const runID = Date.now();
-    // First set of word pairs (flat array)
-    let defaultWordPairs = [
-      "Flower", "Flour",
-      "Knight", "Night",
-      "Sun", "Son",
-      "Right", "Write",
-      "Pair", "Pear",
-      "Sea", "See"
-    ];
-    // Shuffle once and store the flat list.
-    let randomizedPairs = shuffleArray(defaultWordPairs);
+    const trialCount = Math.max(1, parseInt(numTrials, 10) || DEFAULT_NUM_TRIALS);
+    const trials = experiment.buildTrials({ numTrials: trialCount });
+    console.log(`Experiment '${experimentId}' trials:`, trials.map((t) => t.words));
+
     setLoading(true);
     setStatusMessage("Starting recording...");
-    const nestedPairs = [];
-    for (let i = 0; i < randomizedPairs.length; i += 2) {
-      nestedPairs.push([randomizedPairs[i], randomizedPairs[i + 1]]);
-    }
-    await startRecording(subjectName, runID, nestedPairs);
+
+    await startRecording(subjectName, runID, trials);
+    await logEvent(`Experiment: ${experimentId} (${trialCount} trials)`, subjectName, runID);
     await logEvent("Starting delay period", subjectName, runID);
     openFullScreenDisplay();
 
     try {
-      for (let trial = 0; trial < num_trials; trial++) {
-        // First block with the first set of word pairs.
-        defaultWordPairs = [
-          "Flower", "Flour",
-          "Knight", "Night",
-          "Sun", "Son",
-          "Right", "Write",
-          "Pair", "Pear",
-          "Sea", "See"
-        ];
-        randomizedPairs = shuffleArray(defaultWordPairs);
-        console.log("Randomized Pairs:", randomizedPairs);
+      for (let trial = 0; trial < trials.length; trial++) {
+        const { words, items } = trials[trial];
+        await logEvent(
+          `Starting trial ${trial + 1}/${trials.length} [${experimentId}]: [${words.join(', ')}]`,
+          subjectName,
+          runID
+        );
 
-        // Iterate in steps of 2 since our list is flat.
-        for (let i = 0; i < randomizedPairs.length; i += 2) {
-          const firstWord = randomizedPairs[i];
-          const secondWord = randomizedPairs[i + 1];
-          await logEvent(`Starting pair ${i/2 + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
-
-          // First word block:
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(firstWord, "lightblue", subjectName, runID);
-          await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(firstWord, "blue", subjectName, runID);
-          await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          // Second word block:
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(secondWord, "lightblue", subjectName, runID);
-          await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(secondWord, "blue", subjectName, runID);
-          await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
+        for (const item of items) {
+          if (item.preLog) {
+            await logEvent(item.preLog, subjectName, runID);
+          }
+          if (item.kind === 'cross') {
+            await presentCross(item, subjectName, runID);
+          } else {
+            await presentWord(item, subjectName, runID);
+          }
         }
-
-        // Second block with a different set of word pairs.
-        defaultWordPairs = [
-          "Quick", "Fast",
-          "Smart", "Clever",
-          "Big", "Large",
-          "Pair", "Couple",
-          "Sea", "See",
-          "Up", "Down",
-          "Left", "Right"
-        ];
-        randomizedPairs = shuffleArray(defaultWordPairs);
-        console.log("Randomized Pairs:", randomizedPairs);
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-        for (let i = 0; i < randomizedPairs.length; i += 2) {
-          const firstWord = randomizedPairs[i];
-          const secondWord = randomizedPairs[i + 1];
-          await logEvent(`Starting pair ${i/2 + 1}: [${firstWord}, ${secondWord}]`, subjectName, runID);
-
-          // First word block:
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(firstWord, "lightblue", subjectName, runID);
-          await logEvent(`Displayed first word '${firstWord}' for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating first word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(firstWord, "blue", subjectName, runID);
-          await logEvent(`Displayed first word '${firstWord}' again for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          // Second word block:
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (transitioning to second word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(secondWord, "lightblue", subjectName, runID);
-          await logEvent(`Displayed second word '${secondWord}' for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-
-          updateDisplay("+", "black", subjectName, runID);
-          await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (repeating second word)`, subjectName, runID);
-          await preciseDelay(parseFloat(cursorDuration) * 1000);
-
-          updateDisplay(secondWord, "blue", subjectName, runID);
-          await logEvent(`Displayed second word '${secondWord}' again for ${wordDuration} seconds`, subjectName, runID);
-          await preciseDelay(parseFloat(wordDuration) * 1000);
-        }
-        updateDisplay("+", "black", subjectName, runID);
-        await logEvent(`Displayed cross ('+') for ${cursorDuration} seconds (before first word)`, subjectName, runID);
-        await preciseDelay(parseFloat(cursorDuration) * 1000);
       }
-      
+
       // Once UI sequence is done, close the display.
       closeFullScreenDisplay(subjectName, runID);
       setStatusMessage("UI sequence completed. Stopping recording shortly...");
@@ -337,10 +246,15 @@ function App() {
       setStatusMessage("Recording completed successfully!");
       setLoading(false);
     } catch (error) {
+      // Tear the full-screen display down and re-enable the form, otherwise a
+      // mid-session failure leaves the operator staring at a frozen white
+      // fullscreen dialog with no way back.
+      setDialogOpen(false);
+      setLoading(false);
       await logEvent(`Error during recording sequence: ${error.message}`, subjectName, runID);
       setStatusMessage(`Error: ${error.message}`);
       console.error("Error during recording sequence:", error);
-    } 
+    }
   };
 
   // Handle form submission.
@@ -355,6 +269,28 @@ function App() {
         Start EEG Recording
       </Typography>
       <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <TextField
+          select
+          label="Experiment"
+          value={experimentId}
+          onChange={(e) => setExperimentId(e.target.value)}
+          helperText={experiment.description}
+          required
+        >
+          {EXPERIMENT_IDS.map((id) => (
+            <MenuItem key={id} value={id}>
+              {EXPERIMENTS[id].label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          label="Trials"
+          type="number"
+          value={numTrials}
+          onChange={(e) => setNumTrials(e.target.value)}
+          required
+          InputProps={{ inputProps: { step: 1, min: 1 } }}
+        />
         <TextField
           label="Cursor Duration (seconds)"
           type="number"
@@ -382,7 +318,7 @@ function App() {
           {loading ? <CircularProgress size={24} color="inherit" /> : "Start Recording"}
         </Button>
         <Button variant="outlined" color="secondary" onClick={runTestSequence} disabled={loading}>
-          Test Run
+          Test Run (1 trial, no recording)
         </Button>
       </Box>
       {statusMessage && (

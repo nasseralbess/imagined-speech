@@ -26,6 +26,14 @@ def _load_dotenv():
 
 _load_dotenv()
 
+# Resolve data paths relative to the repository root, not the working directory,
+# so recordings land where preprocessing/produce_dataset.py expects to find them
+# (data/logs/<subject>/<subject>_run<run_id>.txt and data/raw/*_params.json)
+# regardless of where uvicorn was launched from.
+REPO_ROOT = Path(__file__).resolve().parent.parent
+LOGS_DIR = REPO_ROOT / "data" / "logs"
+RAW_DIR = REPO_ROOT / "data" / "raw"
+
 record_store = {}
 
 app = FastAPI()
@@ -67,8 +75,8 @@ class Record():
         """
         Save all logs to a subject-specific log file.
         """
-        folder_path = os.path.abspath(f'./data_logs/{self.subject_name}')
-        os.makedirs(folder_path, exist_ok=True) 
+        folder_path = LOGS_DIR / self.subject_name
+        os.makedirs(folder_path, exist_ok=True)
         log_file_path = os.path.join(folder_path, f"{self.subject_name}_run{self.run_id}.txt")
         with open(log_file_path, 'a') as log_file:
             log_file.write('\n'.join(self.logs))
@@ -153,7 +161,7 @@ class LogRequest(BaseModel):
 async def save_log(request: LogRequest):
     try:
         print(f"Received log request: {request.dict()}")
-        folder_path = os.path.abspath(f"./data_logs/{request.subject_name}")
+        folder_path = LOGS_DIR / request.subject_name
         os.makedirs(folder_path, exist_ok=True)
         log_file_path = os.path.join(folder_path, f"{request.subject_name}_run{request.run_id}.txt")
         with open(log_file_path, "a") as log_file:
@@ -169,9 +177,16 @@ class RecordRequest(BaseModel):
     duration: float
     subject_name: str
     run_id: int
+    # One inner list per trial, holding that trial's words in presentation order.
+    # Trials may be of any length (the legacy design sent fixed pairs).
     sequence: list[list[str]]
     cursor_delay: float
     word_delay: float
+    # Which stimulus design produced `sequence`. Defaults to the original design
+    # so older clients that don't send the field keep working.
+    experiment: str = "legacy"
+    num_trials: int | None = None
+    common_event_time: str | None = None
 
 @app.post("/start_recording")
 async def start_recording(request: RecordRequest):
@@ -197,12 +212,18 @@ async def start_recording(request: RecordRequest):
     r.record_export_version = 'V2'
 
 
-    with open(f"data/{request.subject_name}_{request.run_id}_params.json", 'w') as f:
+    os.makedirs(RAW_DIR, exist_ok=True)
+    params_path = RAW_DIR / f"{request.subject_name}_{request.run_id}_params.json"
+    with open(params_path, 'w') as f:
         json.dump({
+            "experiment": request.experiment,
+            "num_trials": request.num_trials if request.num_trials is not None else len(request.sequence),
             "cursor_delay": request.cursor_delay,
             "word_delay": request.word_delay,
+            "common_event_time": request.common_event_time,
             "sequence": request.sequence
-        }, f)
+        }, f, indent=2)
+    r.log(f"Params written to {params_path} (experiment: {request.experiment})")
 
     # Store the Record instance in the global dictionary
     record_store[run_id] = r
