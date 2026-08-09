@@ -32,17 +32,31 @@ The React frontend has an **Experiment** dropdown; the choice is recorded in the
 (`"experiment"`) so every run is self-describing. Stimulus lists and trial construction live in
 `frontend/src/experiments.js`.
 
+Experiments 1 and 2 both draw on the same four **crossover sets** — words carrying *both* a direct
+homophone and a direct synonym:
+
+| target | homophone | synonym |
+|--------|-----------|---------|
+| Plain  | Plane     | Simple  |
+| Steal  | Steel     | Rob     |
+| Pair   | Pear      | Couple  |
+| Fair   | Fare      | Just    |
+
 | id | Design |
 |----|--------|
 | `legacy` | The original: 12 homophone-pair words, then 14 synonym/direction words, each block shuffled flat, per trial. Produced everything currently in `data/raw/`. |
-| `directional` | **Exp 1** — Up/Down/Left/Right every trial plus 3–4 fillers drawn fresh from the battery. Fillers are never a target or related to one, so `Write` (homophone of `Right`) and `Correct` (synonym) can never appear. |
-| `crossover` | **Exp 2** — five target/homophone/synonym sets (`Pair/Pear/Couple`, `Right/Write/Correct`, `Sea/See/Ocean`, `Night/Knight/Evening`, `Flower/Flour/Blossom`) plus 3–4 fillers. Strictly directional words are excluded entirely. |
+| `directional` | **Exp 1** — directions alternating with crossover words: `Up` → intermediate → `Down` → intermediate → … Each trial draws all four intermediates from **one** set, and since a set has 3 words for 4 slots the target is drawn twice (`{Plain, Plain, Plane, Simple}`). Directions and intermediates are shuffled independently before interleaving, so the direction↔intermediate pairing varies per trial. Sets alternate strictly across trials from a random start. |
+| `crossover` | **Exp 2** — each set yields two two-word pairs, one semantic (`Pair`/`Couple`) and one phonetic (`Pair`/`Pear`). A trial runs all 8 pairs in random order, with the order *within* each pair randomised too. Per trial each target appears twice, each counterpart once. |
 
-Filler selection guarantees no trial contains both halves of any pair — otherwise the distractors
-would smuggle the very phonetic/semantic structure the experiments isolate back into the trial.
-`experiments.js` declares every relation once in `HOMOPHONE_PAIRS` / `SYNONYM_PAIRS` and derives
-the exclusions from them, so adding a word to a pair automatically keeps it away from related
-targets.
+Per-trial epoch yield (multiply by the Trials field):
+
+| | Exp 1 | Exp 2 |
+|---|---|---|
+| words shown | 8 | 16 |
+| each direction | 1× | — |
+| each set target | 2× (in its own trial) | 2× |
+| each counterpart | 1× (in its own trial) | 1× |
+| ~duration @ 0.25/1.0 | 20 s | 40 s |
 
 Presentation and logging are unchanged across all three: each word is shown as
 `+` → word in **lightblue** (overt) → `+` → word in **blue** (covert). `preprocessing/produce_dataset.py`
@@ -51,8 +65,10 @@ substring `cross` in the fixation line, and stimuli that are single `\w+` tokens
 contract; anything else in the log is ignored by it.
 
 > **Before epoching new recordings:** `produce_dataset.py`'s `label_map` is a hardcoded 20-word
-> dict. The Exp 2 words `Correct`, `Ocean`, `Evening`, `Blossom`, the neutral fillers, and the
-> already-unlabelled `Fast` / `Large` all need adding there first.
+> dict built for the legacy vocabulary. `Up`/`Down`/`Left`/`Right` and `Pair`/`Pear`/`Couple` are
+> already in it; the other nine crossover words — `Plain`, `Plane`, `Simple`, `Steal`, `Steel`,
+> `Rob`, `Fair`, `Fare`, `Just` — are not, and must be added before Exp 1 or Exp 2 recordings can
+> be epoched.
 
 ## Credentials
 

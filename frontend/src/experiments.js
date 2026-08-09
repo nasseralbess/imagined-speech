@@ -1,8 +1,8 @@
 // experiments.js
 //
-// Stimulus battery + trial construction for every experiment the recording UI
-// can run. App.js owns presentation and logging; this file owns *what* is shown
-// and in what order.
+// Stimulus sets + trial construction for every experiment the recording UI can
+// run. App.js owns presentation and logging; this file owns *what* is shown and
+// in what order.
 //
 // A builder returns a list of trials. A trial is a flat list of presentation
 // items, executed in order:
@@ -16,6 +16,7 @@
 // preprocessing/produce_dataset.py only looks for the substring "cross" in the
 // cross line and pulls the word out of "display to '<word>'", so this wording is
 // free — but the surrounding log format is load-bearing and must not change.
+// Every stimulus must also be a single \w+ token for that regex to match it.
 
 // Fisher-Yates shuffle, returns a new array.
 export const shuffleArray = (array) => {
@@ -29,108 +30,6 @@ export const shuffleArray = (array) => {
 
 const randInt = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 
-// ---------------------------------------------------------------------------
-// Word battery
-// ---------------------------------------------------------------------------
-// Every relation is declared once, here. Filler selection derives its exclusion
-// rules from these pairs rather than from hand-maintained blocklists, so adding
-// a word to a pair automatically keeps it away from the targets it relates to.
-
-export const HOMOPHONE_PAIRS = [
-  ['Flower', 'Flour'],
-  ['Knight', 'Night'],
-  ['Sun', 'Son'],
-  ['Right', 'Write'],
-  ['Pair', 'Pear'],
-  ['Sea', 'See'],
-];
-
-export const SYNONYM_PAIRS = [
-  ['Quick', 'Fast'],
-  ['Smart', 'Clever'],
-  ['Big', 'Large'],
-  ['Pair', 'Couple'],
-  ['Right', 'Correct'],
-  ['Sea', 'Ocean'],
-  ['Night', 'Evening'],
-  ['Flower', 'Blossom'],
-];
-
-export const DIRECTIONAL_WORDS = ['Up', 'Down', 'Left', 'Right'];
-
-// Concrete nouns with no homophone and no synonym anywhere else in the battery,
-// and no semantic link to the directional or crossover targets. These exist so
-// that filler slots can be filled without dragging paired words into a trial.
-export const NEUTRAL_FILLERS = [
-  'Table', 'Window', 'Pencil', 'Bottle',
-  'Carpet', 'Basket', 'Camera', 'Candle',
-  'Pillow', 'Wallet', 'Jacket', 'Kitchen',
-  'Bridge', 'Guitar', 'Engine', 'Napkin',
-];
-
-const ALL_PAIRS = [...HOMOPHONE_PAIRS, ...SYNONYM_PAIRS];
-
-// word (lowercased) -> Set of words it is phonetically or semantically tied to.
-const RELATIONS = (() => {
-  const map = new Map();
-  const link = (a, b) => {
-    const key = a.toLowerCase();
-    if (!map.has(key)) map.set(key, new Set());
-    map.get(key).add(b.toLowerCase());
-  };
-  for (const [a, b] of ALL_PAIRS) {
-    link(a, b);
-    link(b, a);
-  }
-  return map;
-})();
-
-const relativesOf = (word) => RELATIONS.get(word.toLowerCase()) || new Set();
-
-// Full battery: everything that participates in a pair, the directions, and the
-// neutral fillers. Order-stable and de-duplicated case-insensitively.
-export const WORD_BATTERY = (() => {
-  const seen = new Set();
-  const out = [];
-  for (const word of [...ALL_PAIRS.flat(), ...DIRECTIONAL_WORDS, ...NEUTRAL_FILLERS]) {
-    const key = word.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(word);
-  }
-  return out;
-})();
-
-/**
- * Draw `count` filler words at random.
- *
- * Guarantees, in order of importance:
- *   1. No filler is a target, or phonetically/semantically related to a target.
- *   2. No two fillers in the same trial are related to each other — a trial
- *      never contains both halves of a pair, which would smuggle the very
- *      phonetic/semantic structure the experiments are trying to isolate back
- *      in through the distractors.
- *
- * Returns fewer than `count` words only if the pool genuinely runs dry.
- */
-export const drawFillers = (pool, count, targets = []) => {
-  const banned = new Set();
-  for (const t of targets) {
-    banned.add(t.toLowerCase());
-    relativesOf(t).forEach((r) => banned.add(r));
-  }
-
-  const picked = [];
-  for (const word of shuffleArray(pool)) {
-    if (picked.length >= count) break;
-    if (banned.has(word.toLowerCase())) continue;
-    picked.push(word);
-    banned.add(word.toLowerCase());
-    relativesOf(word).forEach((r) => banned.add(r));
-  }
-  return picked;
-};
-
 const wordItem = (
   word,
   { preLog = null, label = 'word', first = '(before word)', repeat = '(repeating word)' } = {},
@@ -141,6 +40,21 @@ const wordItem = (
   preLog,
   crossNotes: { first, repeat },
 });
+
+// ---------------------------------------------------------------------------
+// Crossover sets
+// ---------------------------------------------------------------------------
+// Each set is a word that has BOTH a direct homophone and a direct synonym —
+// the phonetic/semantic crossover structure the second experiment is built on.
+
+export const CROSSOVER_SETS = [
+  { target: 'Plain', homophone: 'Plane', synonym: 'Simple' },
+  { target: 'Steal', homophone: 'Steel', synonym: 'Rob' },
+  { target: 'Pair', homophone: 'Pear', synonym: 'Couple' },
+  { target: 'Fair', homophone: 'Fare', synonym: 'Just' },
+];
+
+export const DIRECTIONAL_WORDS = ['Up', 'Down', 'Left', 'Right'];
 
 // ---------------------------------------------------------------------------
 // Legacy experiment — the design that produced every recording in data/raw/
@@ -193,84 +107,116 @@ const legacyBlockItems = (words) => {
 };
 
 const buildLegacyTrials = ({ numTrials }) =>
-  Array.from({ length: numTrials }, () => ({
-    words: [],
-    items: [
+  Array.from({ length: numTrials }, () => {
+    const items = [
       ...legacyBlockItems(shuffleArray(LEGACY_BLOCK_A)),
       { kind: 'cross', note: '(before first word)' },
       ...legacyBlockItems(shuffleArray(LEGACY_BLOCK_B)),
       { kind: 'cross', note: '(before first word)' },
-    ],
-  })).map((trial) => ({
-    ...trial,
-    words: trial.items.filter((it) => it.kind === 'word').map((it) => it.word),
-  }));
+    ];
+    return { items, words: items.filter((it) => it.kind === 'word').map((it) => it.word) };
+  });
 
 // ---------------------------------------------------------------------------
-// Experiment 1 — directional words with variable distractors
+// Experiment 1 — directional words with interleaved crossover distractors
 // ---------------------------------------------------------------------------
-// The four directions recur in every trial; 3-4 fillers drawn fresh each time
-// keep the sequence from becoming predictable. "Write" is excluded automatically
-// as the homophone of "Right", "Correct" as its synonym.
+// Each trial alternates direction / intermediate:
+//
+//   Up (overt, covert) -> Plane (overt, covert) -> Down (overt, covert) -> ...
+//
+// The four intermediates come from ONE crossover set per trial. A set holds
+// three words but there are four slots, so the target word (the one carrying
+// both relations — Plain, Steal) is drawn twice: {Plain, Plain, Plane, Simple}.
+// Directions and intermediates are each shuffled before being interleaved, so
+// the pairing of a given direction with a given intermediate varies trial to
+// trial while every direction still appears exactly once.
 
-const DIRECTIONAL_TARGETS = ['Up', 'Down', 'Left', 'Right'];
+const EXP1_SET_TARGETS = ['Plain', 'Steal'];
 
-const DIRECTIONAL_FILLER_POOL = WORD_BATTERY.filter(
-  (w) => !DIRECTIONAL_WORDS.some((d) => d.toLowerCase() === w.toLowerCase()),
+export const EXP1_INTERMEDIATE_SETS = CROSSOVER_SETS.filter(
+  (s) => EXP1_SET_TARGETS.includes(s.target),
 );
 
-const buildDirectionalTrials = ({ numTrials, minFillers = 3, maxFillers = 4 }) =>
-  Array.from({ length: numTrials }, () => {
-    const fillers = drawFillers(
-      DIRECTIONAL_FILLER_POOL,
-      randInt(minFillers, maxFillers),
-      DIRECTIONAL_TARGETS,
-    );
-    const words = shuffleArray([...DIRECTIONAL_TARGETS, ...fillers]);
+const intermediatePool = (set) => [set.target, set.target, set.homophone, set.synonym];
+
+const buildDirectionalTrials = ({ numTrials }) => {
+  // Strict alternation with a random starting set, so the two sets get equal
+  // trial counts (±1 at odd numTrials) instead of drifting apart by chance.
+  const offset = randInt(0, EXP1_INTERMEDIATE_SETS.length - 1);
+
+  return Array.from({ length: numTrials }, (_, trialIndex) => {
+    const set = EXP1_INTERMEDIATE_SETS[(offset + trialIndex) % EXP1_INTERMEDIATE_SETS.length];
+    const directions = shuffleArray(DIRECTIONAL_WORDS);
+    const intermediates = shuffleArray(intermediatePool(set));
+
+    const items = [];
+    directions.forEach((direction, i) => {
+      const intermediate = intermediates[i];
+      items.push(wordItem(direction, {
+        preLog: `Starting pair ${i + 1}: [${direction}, ${intermediate}]`,
+        label: 'direction word',
+        first: '(before direction word)',
+        repeat: '(repeating direction word)',
+      }));
+      items.push(wordItem(intermediate, {
+        label: 'intermediate word',
+        first: '(transitioning to intermediate word)',
+        repeat: '(repeating intermediate word)',
+      }));
+    });
+
     return {
-      words,
-      fillers,
-      items: words.map((w) => wordItem(w)),
+      items,
+      words: items.map((it) => it.word),
+      set: set.target,
+      directions,
+      intermediates,
     };
   });
+};
 
 // ---------------------------------------------------------------------------
 // Experiment 2 — semantic vs phonetic processing
 // ---------------------------------------------------------------------------
-// Targets are crossover sets: a word that has BOTH a direct homophone and a
-// direct synonym, presented together with both counterparts. Strictly
-// directional words are gone; "Right" stays because it crosses over
-// (Write / Correct). Fillers work exactly as in experiment 1.
+// Every crossover set yields two two-word pairs — one semantic, one phonetic:
+//
+//   Pair/Couple (semantic)   Pair/Pear (phonetic)
+//
+// A trial runs through all eight pairs in random order, and the order within
+// each pair is randomised too, so the target word isn't always the first of the
+// two. Consequence: per trial each target appears twice (once in its semantic
+// pair, once in its phonetic pair) and each counterpart once.
 
-export const CROSSOVER_SETS = [
-  { target: 'Pair', homophone: 'Pear', synonym: 'Couple' },
-  { target: 'Right', homophone: 'Write', synonym: 'Correct' },
-  { target: 'Sea', homophone: 'See', synonym: 'Ocean' },
-  { target: 'Night', homophone: 'Knight', synonym: 'Evening' },
-  { target: 'Flower', homophone: 'Flour', synonym: 'Blossom' },
-];
+const crossoverPairs = () =>
+  CROSSOVER_SETS.flatMap((set) => [
+    { relation: 'semantic', words: [set.target, set.synonym] },
+    { relation: 'phonetic', words: [set.target, set.homophone] },
+  ]);
 
-const CROSSOVER_TARGETS = CROSSOVER_SETS.flatMap((s) => [s.target, s.homophone, s.synonym]);
-
-// Directional words are removed from the pool entirely; "Right" survives only
-// as a crossover target, never as a filler.
-const CROSSOVER_FILLER_POOL = WORD_BATTERY.filter(
-  (w) => !DIRECTIONAL_WORDS.some((d) => d.toLowerCase() === w.toLowerCase()),
-);
-
-const buildCrossoverTrials = ({ numTrials, minFillers = 3, maxFillers = 4 }) =>
+const buildCrossoverTrials = ({ numTrials }) =>
   Array.from({ length: numTrials }, () => {
-    const fillers = drawFillers(
-      CROSSOVER_FILLER_POOL,
-      randInt(minFillers, maxFillers),
-      CROSSOVER_TARGETS,
-    );
-    const words = shuffleArray([...CROSSOVER_TARGETS, ...fillers]);
-    return {
-      words,
-      fillers,
-      items: words.map((w) => wordItem(w)),
-    };
+    const pairs = shuffleArray(crossoverPairs()).map((pair) => ({
+      ...pair,
+      words: shuffleArray(pair.words),
+    }));
+
+    const items = [];
+    pairs.forEach((pair, i) => {
+      const [first, second] = pair.words;
+      items.push(wordItem(first, {
+        preLog: `Starting pair ${i + 1}: [${first}, ${second}] (${pair.relation})`,
+        label: 'first word',
+        first: '(before first word)',
+        repeat: '(repeating first word)',
+      }));
+      items.push(wordItem(second, {
+        label: 'second word',
+        first: '(transitioning to second word)',
+        repeat: '(repeating second word)',
+      }));
+    });
+
+    return { items, words: items.map((it) => it.word), pairs };
   });
 
 // ---------------------------------------------------------------------------
@@ -284,23 +230,20 @@ export const EXPERIMENTS = {
     description:
       'The original design: 12 homophone-pair words then 14 synonym/direction words, each block shuffled flat, per trial.',
     buildTrials: buildLegacyTrials,
-    targets: [],
   },
   directional: {
     id: 'directional',
-    label: 'Exp 1 — directional words + variable distractors',
+    label: 'Exp 1 — directions interleaved with crossover words',
     description:
-      'Up / Down / Left / Right every trial, plus 3-4 fillers drawn fresh from the battery (never related to a direction).',
+      'Up/Down/Left/Right alternating with 4 intermediates from one set per trial (Plain/Plane/Simple or Steal/Steel/Rob, target drawn twice). Sets alternate across trials.',
     buildTrials: buildDirectionalTrials,
-    targets: DIRECTIONAL_TARGETS,
   },
   crossover: {
     id: 'crossover',
-    label: 'Exp 2 — semantic vs phonetic crossover sets',
+    label: 'Exp 2 — semantic vs phonetic crossover pairs',
     description:
-      'Five target/homophone/synonym sets (Pair, Right, Sea, Night, Flower) plus 3-4 unrelated fillers. No directional words.',
+      'All 8 pairs from Plain/Plane/Simple, Steal/Steel/Rob, Pair/Pear/Couple, Fair/Fare/Just — one semantic and one phonetic pair per set, shuffled.',
     buildTrials: buildCrossoverTrials,
-    targets: CROSSOVER_TARGETS,
   },
 };
 
